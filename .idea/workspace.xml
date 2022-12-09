@@ -1,14 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e6704d4b-30a9-40f5-999d-f4a9d32c6c19" name="Changes" comment="" />
+    <list default="true" id="e6704d4b-30a9-40f5-999d-f4a9d32c6c19" name="Changes" comment="initial commit">
+      <change afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Controller/Controller.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/ApiChannelParser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/Channel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/ChannelList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/View/View.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Main.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2IcstPkSfNCyk9VrXS9u9GaBrI7" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -19,9 +37,19 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/Emmy/Downloads/SlowServerToJTable/SlowServerToJTable"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="RadioInfo" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="se.umu.cs.emli.Main" />
+      <module name="RadioInfo" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -31,6 +59,28 @@
       <option name="presentableId" value="Default" />
       <updated>1670492423336</updated>
     </task>
+    <task id="LOCAL−00001" summary="initial commit">
+      <created>1670492540583</created>
+      <option name="number" value="LOCAL−00001" />
+      <option name="presentableId" value="LOCAL−00001" />
+      <updated>1670492540583</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="initial commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
   </component>
 </project>
