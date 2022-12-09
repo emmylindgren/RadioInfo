@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e6704d4b-30a9-40f5-999d-f4a9d32c6c19" name="Changes" comment="API-request to get channels done. View for channels started.">
-      <change afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/Program.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/ProgramTableModel.java" afterDir="false" />
+    <list default="true" id="e6704d4b-30a9-40f5-999d-f4a9d32c6c19" name="Changes" comment="Added models for a channels programs. Made tablemodel for that too.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/Controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/ApiChannelParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/ApiChannelParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/Channel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/Channel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/ChannelList.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/View/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/View/View.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -72,7 +66,13 @@
       <option name="presentableId" value="LOCAL−00002" />
       <updated>1670592988788</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL−00003" summary="Added models for a channels programs. Made tablemodel for that too.">
+      <created>1670599915561</created>
+      <option name="number" value="LOCAL−00003" />
+      <option name="presentableId" value="LOCAL−00003" />
+      <updated>1670599915561</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -89,6 +89,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />
     <MESSAGE value="API-request to get channels done. View for channels started." />
-    <option name="LAST_COMMIT_MESSAGE" value="API-request to get channels done. View for channels started." />
+    <MESSAGE value="Added models for a channels programs. Made tablemodel for that too." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added models for a channels programs. Made tablemodel for that too." />
   </component>
 </project>

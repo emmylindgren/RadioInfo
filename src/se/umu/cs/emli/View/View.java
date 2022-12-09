@@ -21,6 +21,27 @@ public class View {
 
         this.menuBar = buildJMenuBar();
         frame.setJMenuBar(this.menuBar);
+        setChannelView();
+    }
+
+    public void setChannelView(){
+        //Påbörjad design av förstasidan med första panelen med info!
+        JPanel panel = new JPanel();
+        JLabel header = new JLabel("Radioinfo Sveriges Radio");
+
+        header.setFont(new Font("Inter", Font.BOLD, 25));
+
+        //TODO: fixa så denna wrappar texten :) och font och placering av text!
+        JLabel description = new JLabel();
+        description.setMaximumSize(new Dimension(300, 600));
+        description.setText("<HTML> Här kan du få information om Svergies Radios kanaler och deras tablåer" +
+                ". blabla nåt mer?" +
+                "Tryck här nere eller välj kanal uppe i menyn. Lite mer " +
+                "hjälp här om hur man använder programmet vore bra! </HTML>");
+
+        panel.add(header);
+        panel.add(description);
+        frame.add(panel);
     }
 
 
