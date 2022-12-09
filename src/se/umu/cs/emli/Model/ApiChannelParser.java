@@ -30,12 +30,12 @@ public class ApiChannelParser extends SwingWorker<Object,Object> {
         document.getDocumentElement().normalize();
 
         //Get all channels from XML.
-        NodeList nList = document.getElementsByTagName("channel");
+        NodeList nodeList = document.getElementsByTagName("channel");
         ArrayList<Channel> channels = new ArrayList<>();
 
-        for (int i = 0; i < nList.getLength(); i++)
+        for (int i = 0; i < nodeList.getLength(); i++)
         {
-            Node node = nList.item(i);
+            Node node = nodeList.item(i);
             if (node.getNodeType() == Node.ELEMENT_NODE)
             {
                 Element eElement = (Element) node;
