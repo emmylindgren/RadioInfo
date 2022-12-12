@@ -5,6 +5,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
+import se.umu.cs.emli.View.View;
 
 import javax.swing.*;
 import javax.xml.parsers.DocumentBuilder;
@@ -12,15 +13,31 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
 
-public class ApiChannelParser extends SwingWorker<Object,Object> {
+public class ApiChannelParser extends SwingWorker<ArrayList<Channel>,Object> {
+    //TODO: Som det ser ut just nu är detta en modell och FÅR EJ uppdatera view! Fixa på nåt vis!
+    private View view;
+    public ApiChannelParser(View view){
+        this.view = view;
+    }
     @Override
-    protected Object doInBackground() throws Exception {
-        loadChannels();
-        return null;
+    protected ArrayList<Channel> doInBackground() throws Exception {
+        return loadChannels();
+       // return null;
     }
 
-    private void loadChannels() throws ParserConfigurationException, IOException, SAXException {
+    @Override
+    protected void done(){
+        try {
+            view.setChannelList(new ChannelListModel(get()));
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        } catch (ExecutionException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    private ArrayList<Channel> loadChannels() throws ParserConfigurationException, IOException, SAXException {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
 
@@ -55,6 +72,7 @@ public class ApiChannelParser extends SwingWorker<Object,Object> {
             System.out.println(i + " : "+chan);
             i++;
         }
+        return channels;
     }
 
     /**

@@ -11,6 +11,8 @@ public class Controller {
     public Controller(){
         view = new View("RadioInfo");
         //TODO: Nedan är hämtningen av radiokanalerna. Updatera GUI med dessa. Sätt lyssnare?
+        ApiChannelParser parser = new ApiChannelParser(view);
+        parser.execute();
         //new ApiChannelParser().execute();
         setUpMenuListeners();
     }
