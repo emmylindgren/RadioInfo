@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e6704d4b-30a9-40f5-999d-f4a9d32c6c19" name="Changes" comment="Added models for a channels programs. Made tablemodel for that too.">
+    <list default="true" id="e6704d4b-30a9-40f5-999d-f4a9d32c6c19" name="Changes" comment="Started on the first view, the information page.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/View/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/View/View.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/ApiChannelParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/ApiChannelParser.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,13 +29,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/Emmy/Downloads/SlowServerToJTable/SlowServerToJTable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Emmy/Downloads/SlowServerToJTable/SlowServerToJTable&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="RadioInfo" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="se.umu.cs.emli.Main" />
@@ -72,7 +72,13 @@
       <option name="presentableId" value="LOCAL−00003" />
       <updated>1670599915561</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL−00004" summary="Started on the first view, the information page.">
+      <created>1670602452512</created>
+      <option name="number" value="LOCAL−00004" />
+      <option name="presentableId" value="LOCAL−00004" />
+      <updated>1670602452512</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -90,6 +96,7 @@
     <MESSAGE value="initial commit" />
     <MESSAGE value="API-request to get channels done. View for channels started." />
     <MESSAGE value="Added models for a channels programs. Made tablemodel for that too." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added models for a channels programs. Made tablemodel for that too." />
+    <MESSAGE value="Started on the first view, the information page." />
+    <option name="LAST_COMMIT_MESSAGE" value="Started on the first view, the information page." />
   </component>
 </project>

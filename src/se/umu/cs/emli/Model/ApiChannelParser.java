@@ -24,7 +24,7 @@ public class ApiChannelParser extends SwingWorker<Object,Object> {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
 
-        Document document = builder.parse("http://api.sr.se/api/v2/channels");
+        Document document = builder.parse("http://api.sr.se/api/v2/channels?pagination=false");
 
         //Normalize the XML Structure
         document.getDocumentElement().normalize();
@@ -32,7 +32,7 @@ public class ApiChannelParser extends SwingWorker<Object,Object> {
         //Get all channels from XML.
         NodeList nodeList = document.getElementsByTagName("channel");
         ArrayList<Channel> channels = new ArrayList<>();
-
+        System.out.println(nodeList.getLength());
         for (int i = 0; i < nodeList.getLength(); i++)
         {
             Node node = nodeList.item(i);
@@ -41,16 +41,33 @@ public class ApiChannelParser extends SwingWorker<Object,Object> {
                 Element eElement = (Element) node;
 
                 String name = eElement.getAttribute("name");
-                String imageUrl = eElement.getElementsByTagName("image").item(0).getTextContent();
-                String tagline = eElement.getElementsByTagName("tagline").item(0).getTextContent();
-                String tableauUrl = eElement.getElementsByTagName("scheduleurl").item(0).getTextContent();
-                String channelType = eElement.getElementsByTagName("channeltype").item(0).getTextContent();
+                String imageUrl = getElementFromTagName(eElement,"image");
+                String tagline = getElementFromTagName(eElement,"tagline");
+                String tableauUrl = getElementFromTagName(eElement,"scheduleurl");
+                String channelType = getElementFromTagName(eElement,"channeltype");
 
                 channels.add(new Channel(name,imageUrl,tagline,tableauUrl,channelType));
             }
         }
+
+        int i = 1;
         for (Channel chan:channels) {
-            System.out.println(chan);
+            System.out.println(i + " : "+chan);
+            i++;
         }
+    }
+
+    /**
+     * Method to get value of tagName from element. Checks if the tagName exists, if it does the value
+     * in form of a string is returned, otherwise null is returned.
+     * @param e, the element node.
+     * @param tagName, the tagName which is connected to the value.
+     * @return the value in form of a string.
+     */
+    private String getElementFromTagName(Element e, String tagName){
+        if(e.getElementsByTagName(tagName).getLength() > 0){
+            return e.getElementsByTagName(tagName).item(0).getTextContent();
+        }
+        return null;
     }
 }
