@@ -13,13 +13,16 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 
-public class ApiChannelParser extends SwingWorker<ArrayList<Channel>,Object> {
+public class ApiChannelParser extends SwingWorker<ArrayList<Channel>,Channel> {
     //TODO: Som det ser ut just nu är detta en modell och FÅR EJ uppdatera view! Fixa på nåt vis!
     private View view;
-    public ApiChannelParser(View view){
+    private ChannelListModel channelList;
+    public ApiChannelParser(View view, ChannelListModel channelList){
         this.view = view;
+        this.channelList = channelList;
     }
     @Override
     protected ArrayList<Channel> doInBackground() throws Exception {
@@ -27,15 +30,18 @@ public class ApiChannelParser extends SwingWorker<ArrayList<Channel>,Object> {
        // return null;
     }
 
+    //TODO: Remove done function? Iaf så att den inte returnerar en lista vi sedan ej använder :)
+
     @Override
     protected void done(){
+        /*
         try {
             view.setChannelList(new ChannelListModel(get()));
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         } catch (ExecutionException e) {
             throw new RuntimeException(e);
-        }
+        }*/
     }
     private ArrayList<Channel> loadChannels() throws ParserConfigurationException, IOException, SAXException {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -63,9 +69,12 @@ public class ApiChannelParser extends SwingWorker<ArrayList<Channel>,Object> {
                 String tableauUrl = getElementFromTagName(eElement,"scheduleurl");
                 String channelType = getElementFromTagName(eElement,"channeltype");
 
-                channels.add(new Channel(name,imageUrl,tagline,tableauUrl,channelType));
+                Channel chan = new Channel(name,imageUrl,tagline,tableauUrl,channelType);
+                channels.add(chan);
+                publish(chan);
             }
         }
+        //TODO: Remove these prints, for testing purposes :)
 
         int i = 1;
         for (Channel chan:channels) {
@@ -87,5 +96,12 @@ public class ApiChannelParser extends SwingWorker<ArrayList<Channel>,Object> {
             return e.getElementsByTagName(tagName).item(0).getTextContent();
         }
         return null;
+    }
+
+    @Override
+    protected void process(List<Channel> chunks) {
+        for (Channel chan: chunks) {
+            channelList.add(chan);
+        }
     }
 }

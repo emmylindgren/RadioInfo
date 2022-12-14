@@ -13,7 +13,6 @@ public class ChannelRenderer extends JButton implements ListCellRenderer<Channel
 
         setVerticalTextPosition(SwingConstants.BOTTOM);
         setHorizontalTextPosition(SwingConstants.CENTER);
-
         return this;
     }
 }

@@ -8,60 +8,53 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import java.awt.*;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 public class View {
     private JFrame frame;
     private JMenuBar menuBar;
-
-
+    private JList<Channel> list;
 
     //TODO: När ska visa upp programtablå så blir de: JTable jTable=new JTable(programList);
     //            JScrollPane sPane=new JScrollPane(jTable);
-    public View(String title){
+    public View(String title, ChannelListModel channelList){
         frame = new JFrame();
         frame.setTitle(title);
         frame.setSize(new Dimension(950, 600));
+        frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new BorderLayout());
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
+
+        list = new JList<>(channelList);
+        setChannelList();
 
         this.menuBar = buildJMenuBar();
         frame.setJMenuBar(this.menuBar);
         setChannelView();
     }
 
-    public void setChannelList(ChannelListModel model){
+    public void setChannelList(){
         JPanel panel = new JPanel();
         panel.setBorder(BorderFactory.createEmptyBorder(0, 10, 0,10));
-        JList<Channel> list = new JList<Channel>(model);
+
         list.setCellRenderer(new ChannelRenderer());
 
-        panel.setMaximumSize((new Dimension(200, 600)));
+        panel.setMaximumSize((new Dimension(900, 600)));
         list.setLayoutOrientation(JList.HORIZONTAL_WRAP);
-        list.setMaximumSize((new Dimension(200, 600)));
+
         list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        //TODO: Lyssnare nedan ska flyttas till controller.
-        list.addListSelectionListener(new ListSelectionListener() {
-            public void valueChanged(ListSelectionEvent event) {
-                if (!event.getValueIsAdjusting()){
-                    JList source = (JList)event.getSource();
-                    Channel chan = (Channel)source.getSelectedValue();
-                    //String selected = source.getSelectedValue().toString();
-                    String selected = chan.getName();
-                    System.out.println(selected);
-                }
-            }
-        });
-
-
+        list.setVisibleRowCount(15);
         panel.add(list);
 
         JScrollPane scrollPane = new JScrollPane(panel,ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
                 ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 
         frame.add(scrollPane,BorderLayout.CENTER);
+    }
+
+    public void setChannelListListener(ListSelectionListener listener){
+        list.addListSelectionListener(listener);
     }
 
     public void setChannelView(){
