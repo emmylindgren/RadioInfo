@@ -1,12 +1,12 @@
 package se.umu.cs.emli.Model;
 
 import javax.swing.table.AbstractTableModel;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class ProgramTableModel extends AbstractTableModel {
-
-    //TODO: Implementera denna. Tror den är långt från klar, lyssnare här eller?
     ArrayList<Program> programs;
+    private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("E, dd MMM HH:ss");
     public ProgramTableModel(){
         programs = new ArrayList<>();
     }
@@ -36,14 +36,12 @@ public class ProgramTableModel extends AbstractTableModel {
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         Program program = programs.get(rowIndex);
-        /* TODO: Detta ska också in så man kan hämta de värdet.
         return switch (columnIndex) {
             case 0 -> program.getName();
-            case 1 -> program.getStartTime;
-            case 2 -> program.getEndTime;
+            case 1 -> program.getStartTime().format(formatter);
+            case 2 -> program.getEndTime().format(formatter);
             default -> null;
-        };*/
-        return null;
+        };
     }
 
     @Override

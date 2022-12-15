@@ -1,6 +1,7 @@
 package se.umu.cs.emli.Model;
 
 import org.w3c.dom.Element;
+import javax.swing.*;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
@@ -11,7 +12,7 @@ public class Program {
     private LocalDateTime endTime;
     private String description;
     private String imageURL;
-
+    private ImageIcon image; //TODO: Fix method for fetching image. Remember it will be called from EDT !! Så?..
 
     public Program(Element programElement){
         this.name = getElementFromTagName(programElement,"title");
@@ -24,9 +25,9 @@ public class Program {
     }
 
     /**
-     * Loads zoned time from dateTime in string format.
+     * Loads zoned time from dateTime in string format, and returns it as a local date time.
      * @param dateTimeString, the date in string format.
-     * @return the date as a ZonedDateTime-object in the timezone of the system.
+     * @return the date as a LocalDateTime-object in the timezone of the system.
      */
     private LocalDateTime loadLocallyZonedTime(String dateTimeString){
         if(dateTimeString == null) return null;
@@ -53,11 +54,23 @@ public class Program {
         return startTime.isBefore(end) && startTime.isAfter(start);
     }
 
+    public LocalDateTime getStartTime() {
+        return startTime;
+    }
+    public LocalDateTime getEndTime() {
+        return endTime;
+    }
+    public String getName() {
+        return name;
+    }
+    public String getDescription() {
+        return description;
+    }
 
     //TODO: Remove later. Now for debugging.
     @Override
     public String toString() {
-        return "Name: "+name+ " image: "+imageURL+" desc: "+description+ " start: "+startTime.toString()
+        return "   Name: "+name+ " image: "+imageURL+" desc: "+description+ " start: "+startTime.toString()
                 + " end: "+ endTime.toString();
     }
 }
