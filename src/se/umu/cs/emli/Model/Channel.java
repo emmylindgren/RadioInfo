@@ -1,14 +1,7 @@
 package se.umu.cs.emli.Model;
 
 import org.w3c.dom.Element;
-import org.xml.sax.SAXException;
-
-import javax.imageio.ImageIO;
 import javax.swing.*;
-import javax.xml.parsers.ParserConfigurationException;
-import java.awt.*;
-import java.io.IOException;
-import java.net.URL;
 
 public class Channel {
     private String name;
@@ -29,7 +22,7 @@ public class Channel {
         this.channelType = getElementFromTagName(channelElement,"channeltype");
         this.tableau = new ProgramTableModel();
         this.hasHashedTableau = false;
-        loadImage();
+        this.image = new ImageLoader().loadImage(imageURL);
     }
 
     /**
@@ -44,34 +37,6 @@ public class Channel {
             return e.getElementsByTagName(tagName).item(0).getTextContent();
         }
         return null;
-    }
-
-    /**
-     * Loads the channels image.
-     * TODO: Maybe move this? So could be used by both channels and program.
-     * TODO: Handle exceptions when loading images.
-     */
-    private void loadImage(){
-        Image img = null;
-        boolean loadImageNotFoundIcon = imageURL == null;
-
-        if(!loadImageNotFoundIcon){
-            try {
-                img = ImageIO.read(new URL(imageURL));
-            } catch (IOException e) {
-                loadImageNotFoundIcon = true;
-            }
-        }
-        if(loadImageNotFoundIcon){
-            try {
-                img = ImageIO.read(Channel.class.getResource("../resources/image-not-found-icon.png"));
-            } catch (IOException| NullPointerException ignored) {
-            }
-        }
-        if(img != null){
-            img = img.getScaledInstance(60,60,Image.SCALE_SMOOTH);
-            image = new ImageIcon(img);
-        }
     }
 
     public ProgramTableModel getTableau() {
