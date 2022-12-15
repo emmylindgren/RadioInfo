@@ -4,6 +4,8 @@ import javax.swing.table.AbstractTableModel;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
+//TODO: Använd modellens status på något sätt! Typ färg på tabellen men de kanske måste göras i en
+// cell renderer eller så? :)
 public class ProgramTableModel extends AbstractTableModel {
     ArrayList<Program> programs;
     private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("E, dd MMM HH:ss");
@@ -13,10 +15,6 @@ public class ProgramTableModel extends AbstractTableModel {
 
     public void addChannel(Program program){
         programs.add(program);
-        //DENNA va från Johans kod, behövs den? Den uppdaterar lyssnare om att något lagts till i raden.
-        //Kan tänka mig att vi i detta program istället skriver en typ updatechannels där
-        //man skickar in en hel lista och sätter om den, så typ: this.fireTableDataChanged(); eller liknande?
-        //Eller ha en spec för när man ska ersätta hela? Fast då tror jag ändå man vill rensa hela :)
         this.fireTableRowsInserted(programs.size(), programs.size());
     }
 

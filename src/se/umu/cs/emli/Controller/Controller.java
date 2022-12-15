@@ -43,6 +43,9 @@ public class Controller {
                     Channel chan = (Channel)source.getSelectedValue();
                     String selected = "Vald kanal: " + chan.getName();
                     System.out.println(selected);
+                    //Starta en vy med denna och ladda in kanalinfo
+                    // där sätta lyssnare på den tabellen : om man väljer en ska popup med mer info
+                    //visas: bild och beskrivning: bild laddas in på tråd?
                     ProgramTableModel model = chan.getTableau();
                 }
             }

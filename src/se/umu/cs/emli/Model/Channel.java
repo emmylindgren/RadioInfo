@@ -58,6 +58,11 @@ public class Channel {
             parser.loadTableau();
             hasHashedTableau = true;
         }
+        // Förslag:
+        /*
+        Används swingtimer för att starta en swingworker som updaterar GUI (eller ja modellen).
+        När starta: kolla om timer finns ; om den finns så stäng av & och skapa en ny. Dock ej trådsäkert :p
+         */
     }
 
     public ImageIcon getImageIcon(){

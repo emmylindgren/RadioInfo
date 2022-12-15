@@ -12,6 +12,7 @@ public class Program {
     private LocalDateTime endTime;
     private String description;
     private String imageURL;
+    private Status status;
     private ImageIcon image; //TODO: Fix method for fetching image. Remember it will be called from EDT !! Så?..
 
     public Program(Element programElement){
@@ -51,6 +52,16 @@ public class Program {
     }
 
     public boolean isWithinRange(LocalDateTime start, LocalDateTime end){
+        LocalDateTime now = LocalDateTime.now();
+        if(endTime.isBefore(now)){
+            status = Status.ENDED;
+        }
+        else if(startTime.isAfter(now)){
+            status = Status.UPCOMING;
+        }
+        else {
+            status = Status.ONGOING;
+        }
         return startTime.isBefore(end) && startTime.isAfter(start);
     }
 
