@@ -23,17 +23,6 @@ public class Channel {
     // TODO: Ska de här vara en channellist då? Eller ska de heta programList kanske :) Ska den ens ha koll på sina
     //kanaler?
 
-    public Channel(String name, String imageURL,String tagline,String tableauURL,String channelType){
-        this.name = name;
-        this.imageURL = imageURL;
-        this.tagline = tagline;
-        this.tableauURL = tableauURL;
-        this.channelType = channelType;
-        this.tableau = new ProgramTableModel();
-        this.hasHashedTableau = false;
-        loadImage();
-    }
-
     public Channel(Element channelElement){
 
         this.name = channelElement.getAttribute("name");
@@ -41,6 +30,8 @@ public class Channel {
         this.tagline = getElementFromTagName(channelElement,"tagline");
         this.tableauURL = getElementFromTagName(channelElement,"scheduleurl");
         this.channelType = getElementFromTagName(channelElement,"channeltype");
+        this.tableau = new ProgramTableModel();
+        this.hasHashedTableau = false;
         loadImage();
 
     }
