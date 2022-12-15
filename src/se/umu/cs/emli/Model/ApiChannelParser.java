@@ -43,6 +43,7 @@ public class ApiChannelParser extends SwingWorker<ArrayList<Channel>,Channel> {
             throw new RuntimeException(e);
         }*/
     }
+//TODO: HANDLE EXCEPTIONS!
     private ArrayList<Channel> loadChannels() throws ParserConfigurationException, IOException, SAXException {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
@@ -61,15 +62,9 @@ public class ApiChannelParser extends SwingWorker<ArrayList<Channel>,Channel> {
             Node node = nodeList.item(i);
             if (node.getNodeType() == Node.ELEMENT_NODE)
             {
-                Element eElement = (Element) node;
+                Element channelElement = (Element) node;
 
-                String name = eElement.getAttribute("name");
-                String imageUrl = getElementFromTagName(eElement,"image");
-                String tagline = getElementFromTagName(eElement,"tagline");
-                String tableauUrl = getElementFromTagName(eElement,"scheduleurl");
-                String channelType = getElementFromTagName(eElement,"channeltype");
-
-                Channel chan = new Channel(name,imageUrl,tagline,tableauUrl,channelType);
+                Channel chan = new Channel(channelElement);
                 channels.add(chan);
                 publish(chan);
             }
@@ -84,19 +79,6 @@ public class ApiChannelParser extends SwingWorker<ArrayList<Channel>,Channel> {
         return channels;
     }
 
-    /**
-     * Method to get value of tagName from element. Checks if the tagName exists, if it does the value
-     * in form of a string is returned, otherwise null is returned.
-     * @param e, the element node.
-     * @param tagName, the tagName which is connected to the value.
-     * @return the value in form of a string.
-     */
-    private String getElementFromTagName(Element e, String tagName){
-        if(e.getElementsByTagName(tagName).getLength() > 0){
-            return e.getElementsByTagName(tagName).item(0).getTextContent();
-        }
-        return null;
-    }
 
     @Override
     protected void process(List<Channel> chunks) {
