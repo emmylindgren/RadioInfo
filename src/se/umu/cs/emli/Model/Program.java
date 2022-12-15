@@ -1,23 +1,38 @@
 package se.umu.cs.emli.Model;
 
 import org.w3c.dom.Element;
-import org.w3c.dom.Node;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 
 public class Program {
     private String name;
-    private String startTime;
-    private String endTime;
+    private LocalDateTime startTime;
+    private LocalDateTime endTime;
     private String description;
     private String imageURL;
+
 
     public Program(Element programElement){
         this.name = getElementFromTagName(programElement,"title");
         String subTitle = getElementFromTagName(programElement,"subtitle");
         if(subTitle != null) this.name = this.name + " - " + subTitle;
-        this.startTime = getElementFromTagName(programElement,"starttimeutc");
-        this.endTime = getElementFromTagName(programElement,"endtimeutc");
+        this.startTime = loadLocallyZonedTime(getElementFromTagName(programElement,"starttimeutc"));
+        this.endTime = loadLocallyZonedTime(getElementFromTagName(programElement,"endtimeutc"));
         this.description = getElementFromTagName(programElement,"description");
         this.imageURL = getElementFromTagName(programElement,"imageurl");
+    }
+
+    /**
+     * Loads zoned time from dateTime in string format.
+     * @param dateTimeString, the date in string format.
+     * @return the date as a ZonedDateTime-object in the timezone of the system.
+     */
+    private LocalDateTime loadLocallyZonedTime(String dateTimeString){
+        if(dateTimeString == null) return null;
+        ZonedDateTime dateTime = ZonedDateTime.parse(dateTimeString);
+        dateTime = ZonedDateTime.ofInstant(dateTime.toInstant(), ZoneId.systemDefault());
+        return dateTime.toLocalDateTime();
     }
 
     /**
@@ -34,11 +49,15 @@ public class Program {
         return null;
     }
 
+    public boolean isWithinRange(LocalDateTime start, LocalDateTime end){
+        return startTime.isBefore(end) && startTime.isAfter(start);
+    }
+
 
     //TODO: Remove later. Now for debugging.
     @Override
     public String toString() {
-        return "Name: "+name+ " image: "+imageURL+" desc: "+description+ " start: "+startTime
-                + " end: "+ endTime;
+        return "Name: "+name+ " image: "+imageURL+" desc: "+description+ " start: "+startTime.toString()
+                + " end: "+ endTime.toString();
     }
 }

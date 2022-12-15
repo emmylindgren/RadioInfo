@@ -10,43 +10,80 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Timer;
 
+//TODO: This should be done on a thread :)
 public class ApiTableauParser extends Timer {
     private ProgramTableModel tableau;
     private String url;
+    private static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'");
 
     public ApiTableauParser(ProgramTableModel tableau, String url){
         this.tableau = tableau;
         this.url = url;
     }
 
+    public void loadTableau(){
+        LocalDateTime now = LocalDateTime.now();
+        LocalDateTime start = now.minusHours(6);
+        LocalDateTime end = now.plusHours(12);
+
+        int hour = now.getHour();
+        try {
+            if(hour < 6){
+                parseProgramsFromDate(now.minusDays(1),start,end);
+                parseProgramsFromDate(now,start,end);
+            }
+            else if(hour > 12 || (hour == 12 && now.getMinute() > 0)){
+                parseProgramsFromDate(now,start,end);
+                parseProgramsFromDate(now.plusDays(1),start,end);
+            }
+            else{
+                parseProgramsFromDate(now,start,end);
+            }
+        } catch (ParserConfigurationException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (SAXException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     //TODO: HANDLE EXCEPTIONS, where?
     //TODO: Hantera om 404.. Kanske de är exttt. Asså vissa url kan va fel :)
-    public void parseInfo() throws ParserConfigurationException, IOException, SAXException {
+    public void parseProgramsFromDate(LocalDateTime dateToGet, LocalDateTime start, LocalDateTime end) throws ParserConfigurationException, IOException, SAXException {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
 
-        Document document = builder.parse(url+"&pagination=false");
+        System.out.println("TIME TO GET: " +dateToGet);
+        Document document = builder.parse(url+"&pagination=false"+"&date="+dateToGet);
         //Normalize the XML Structure
         document.getDocumentElement().normalize();
         //Get all the programs from XML
         NodeList programList = document.getElementsByTagName("scheduledepisode");
-        //TODO: Hämta andra datum om det behövs :)
 
+        ArrayList<Program> programs = new ArrayList<>();
         for (int i = 0; i < programList.getLength(); i++) {
             Node node = programList.item(i);
 
             if (node.getNodeType() == Node.ELEMENT_NODE) {
-
                 Element programElement = (Element) node;
                 Program program = new Program(programElement);
-
-                System.out.println(program);
-
+                if(program.isWithinRange(start,end)){
+                    //TODO: SHould be added to tablemodel :) Men va försiktig pga de är en tråd?
+                    programs.add(program);
+                }
             }
         }
-    }
+        //ta bort, för kontroll.
+        System.out.println("programmen sorterade :)");
+        for (Program prog:programs) {
 
+            System.out.println(prog);
+        }
+    }
 }

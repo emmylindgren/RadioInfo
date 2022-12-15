@@ -19,9 +19,6 @@ public class Channel {
     private ImageIcon image;
     private ProgramTableModel tableau;
     private boolean hasHashedTableau;
-   // private ArrayList<Program> programs;
-    // TODO: Ska de här vara en channellist då? Eller ska de heta programList kanske :) Ska den ens ha koll på sina
-    //kanaler?
 
     public Channel(Element channelElement){
 
@@ -33,7 +30,6 @@ public class Channel {
         this.tableau = new ProgramTableModel();
         this.hasHashedTableau = false;
         loadImage();
-
     }
 
     /**
@@ -53,6 +49,7 @@ public class Channel {
     /**
      * Loads the channels image.
      * TODO: Maybe move this? So could be used by both channels and program.
+     * TODO: Handle exceptions when loading images.
      */
     private void loadImage(){
         Image img = null;
@@ -85,27 +82,17 @@ public class Channel {
     }
 
     private void loadTableau(){
-        //TODO: Load tableau here first time. Maybe solwe the manual updates here too.
-        //Skicka tablaue till worker och denna fyller tableu.
-        //Den gör programs. Printa där i så fall :)
-        // den ska ta in tablemodel & url! TODO: Hantera här IFALL url == null vilket den verkligen kan va :)
-        // Då ska vi väl skriva ut nåt fint att de ej finns. eller typ en inforuta.
+        //TODO: Load tableau here first time. Maybe solwe the manual updates here too?
         if(tableauURL == null){
+            //TODO: Fix nice prompt when URL is not found.
             System.out.println("nulligt");
         }
         else{
+            //Skicka tablaue till worker och denna fyller tableu.
             ApiTableauParser parser = new ApiTableauParser(tableau,tableauURL);
-            try {
-                parser.parseInfo();
-            } catch (ParserConfigurationException e) {
-                throw new RuntimeException(e);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            } catch (SAXException e) {
-                throw new RuntimeException(e);
-            }
+            parser.loadTableau();
+            hasHashedTableau = true;
         }
-
     }
 
     public ImageIcon getImageIcon(){
@@ -116,6 +103,5 @@ public class Channel {
     public String toString() {
         return "Name: "+name+ " image: "+imageURL+" tagline: "+tagline+ " type: "+channelType + " tablauURL: "+tableauURL;
     }
-
     public String getName(){return name;}
 }
