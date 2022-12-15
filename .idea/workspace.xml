@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e6704d4b-30a9-40f5-999d-f4a9d32c6c19" name="Changes" comment="Made listmodel to show all channels. Images now loading too.">
+    <list default="true" id="e6704d4b-30a9-40f5-999d-f4a9d32c6c19" name="Changes" comment="Cleaned up some more.">
+      <change afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/ApiTableauParser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/Controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/ApiChannelParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/ApiChannelParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/ChannelListModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/ChannelListModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/View/ChannelRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/View/ChannelRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/View/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/View/View.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/Program.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/ProgramTableModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/ProgramTableModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +102,25 @@
       <option name="presentableId" value="LOCAL−00006" />
       <updated>1670875834698</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL−00007" summary="Moved around logic. Cleaned up code.">
+      <created>1671008150377</created>
+      <option name="number" value="LOCAL−00007" />
+      <option name="presentableId" value="LOCAL−00007" />
+      <updated>1671008150377</updated>
+    </task>
+    <task id="LOCAL−00008" summary="Moved around logic. Cleared up worker a bit.">
+      <created>1671104039593</created>
+      <option name="number" value="LOCAL−00008" />
+      <option name="presentableId" value="LOCAL−00008" />
+      <updated>1671104039593</updated>
+    </task>
+    <task id="LOCAL−00009" summary="Cleaned up some more.">
+      <created>1671104120910</created>
+      <option name="number" value="LOCAL−00009" />
+      <option name="presentableId" value="LOCAL−00009" />
+      <updated>1671104120910</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -124,6 +141,9 @@
     <MESSAGE value="Started on the first view, the information page." />
     <MESSAGE value="Fixed xml parser to work even though some tags are missing." />
     <MESSAGE value="Made listmodel to show all channels. Images now loading too." />
-    <option name="LAST_COMMIT_MESSAGE" value="Made listmodel to show all channels. Images now loading too." />
+    <MESSAGE value="Moved around logic. Cleaned up code." />
+    <MESSAGE value="Moved around logic. Cleared up worker a bit." />
+    <MESSAGE value="Cleaned up some more." />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleaned up some more." />
   </component>
 </project>

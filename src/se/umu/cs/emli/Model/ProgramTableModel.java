@@ -16,6 +16,7 @@ public class ProgramTableModel extends AbstractTableModel {
         //DENNA va från Johans kod, behövs den? Den uppdaterar lyssnare om att något lagts till i raden.
         //Kan tänka mig att vi i detta program istället skriver en typ updatechannels där
         //man skickar in en hel lista och sätter om den, så typ: this.fireTableDataChanged(); eller liknande?
+        //Eller ha en spec för när man ska ersätta hela? Fast då tror jag ändå man vill rensa hela :)
         this.fireTableRowsInserted(programs.size(), programs.size());
     }
 

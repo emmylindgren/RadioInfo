@@ -3,6 +3,7 @@ package se.umu.cs.emli.Controller;
 import se.umu.cs.emli.Model.ApiChannelParser;
 import se.umu.cs.emli.Model.Channel;
 import se.umu.cs.emli.Model.ChannelListModel;
+import se.umu.cs.emli.Model.ProgramTableModel;
 import se.umu.cs.emli.View.View;
 
 import javax.swing.*;
@@ -32,7 +33,7 @@ public class Controller {
         view.setCancelItemListener(e -> {System.out.println("Klick på avsluta");});
     }
 
-    //TODO: This is what should load the tablau for each channel.
+    //TODO: This is what should load the tablau for each channel. And update UI with that tablemodel:)
     private void setUpJListListener(){
         view.setChannelListListener(new ListSelectionListener() {
             public void valueChanged(ListSelectionEvent event) {
@@ -40,9 +41,9 @@ public class Controller {
                     JList source = (JList)event.getSource();
                     //Chan here is the object on which to load the tablau from! I think :)
                     Channel chan = (Channel)source.getSelectedValue();
-                    //String selected = source.getSelectedValue().toString();
-                    String selected = chan.getName();
+                    String selected = "Vald kanal: " + chan.getName();
                     System.out.println(selected);
+                    ProgramTableModel model = chan.getTableau();
                 }
             }
         });
