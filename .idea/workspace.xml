@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e6704d4b-30a9-40f5-999d-f4a9d32c6c19" name="Changes" comment="Generated getters and updated tablemodel to display values.">
-      <change afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/Status.java" afterDir="false" />
+    <list default="true" id="e6704d4b-30a9-40f5-999d-f4a9d32c6c19" name="Changes" comment="Added status for programs. Also some comments on how to implement threads.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/Controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/ApiChannelParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/ApiChannelParser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/Channel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/Channel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/Program.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/ProgramTableModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/ProgramTableModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,13 +31,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/Emmy/Downloads/Swingtimer/Swingtimer"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Emmy/Downloads/Swingtimer/Swingtimer&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Emmy\IdeaProjects\RadioInfo\src\se\umu\cs\emli\Resources" />
@@ -146,7 +143,13 @@
       <option name="presentableId" value="LOCAL−00013" />
       <updated>1671118409212</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL−00014" summary="Added status for programs. Also some comments on how to implement threads.">
+      <created>1671130742278</created>
+      <option name="number" value="LOCAL−00014" />
+      <option name="presentableId" value="LOCAL−00014" />
+      <updated>1671130742278</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -174,6 +177,7 @@
     <MESSAGE value="Loading tableau working. Sorting after time." />
     <MESSAGE value="Moved the imageloading-logic to own class." />
     <MESSAGE value="Generated getters and updated tablemodel to display values." />
-    <option name="LAST_COMMIT_MESSAGE" value="Generated getters and updated tablemodel to display values." />
+    <MESSAGE value="Added status for programs. Also some comments on how to implement threads." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added status for programs. Also some comments on how to implement threads." />
   </component>
 </project>

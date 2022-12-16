@@ -49,7 +49,7 @@ public class Channel {
     private void loadTableau(){
         //TODO: Load tableau here first time. Maybe solwe the manual updates here too?
         if(tableauURL == null){
-            //TODO: Fix nice prompt when URL is not found.
+            //TODO: Fix nice prompt when URL is not found. Maybe move this logic to getTablau already :)
             System.out.println("nulligt");
         }
         else{

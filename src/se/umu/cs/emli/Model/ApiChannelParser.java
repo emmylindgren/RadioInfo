@@ -14,10 +14,8 @@ import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
 
 public class ApiChannelParser extends SwingWorker<ArrayList<Channel>,Channel> {
-    //TODO: Som det ser ut just nu är detta en modell och FÅR EJ uppdatera view! Fixa på nåt vis!
     private View view;
     private ChannelListModel channelList;
     public ApiChannelParser(View view, ChannelListModel channelList){
@@ -27,10 +25,10 @@ public class ApiChannelParser extends SwingWorker<ArrayList<Channel>,Channel> {
     @Override
     protected ArrayList<Channel> doInBackground() throws Exception {
         return loadChannels();
-       // return null;
     }
 
-    //TODO: Remove done function? Iaf så att den inte returnerar en lista vi sedan ej använder :)
+    //TODO: Hantera undantag. Kanske liknande som i första uppgiften? Skicka sträng eller så till done
+    // som på nåt sätt meddelar controller? Om vi vill att det ska va modell ska den ej ha vyn.
 
     @Override
     protected void done(){
