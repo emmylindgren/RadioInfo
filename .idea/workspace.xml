@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e6704d4b-30a9-40f5-999d-f4a9d32c6c19" name="Changes" comment="Added status for programs. Also some comments on how to implement threads.">
+    <list default="true" id="e6704d4b-30a9-40f5-999d-f4a9d32c6c19" name="Changes" comment="Added some comments for threads.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/ApiChannelParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/ApiChannelParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/Channel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/Channel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/View/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/View/View.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,7 +148,13 @@
       <option name="presentableId" value="LOCAL−00014" />
       <updated>1671130742278</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL−00015" summary="Added some comments for threads.">
+      <created>1671180922321</created>
+      <option name="number" value="LOCAL−00015" />
+      <option name="presentableId" value="LOCAL−00015" />
+      <updated>1671180922321</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -178,6 +183,7 @@
     <MESSAGE value="Moved the imageloading-logic to own class." />
     <MESSAGE value="Generated getters and updated tablemodel to display values." />
     <MESSAGE value="Added status for programs. Also some comments on how to implement threads." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added status for programs. Also some comments on how to implement threads." />
+    <MESSAGE value="Added some comments for threads." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added some comments for threads." />
   </component>
 </project>

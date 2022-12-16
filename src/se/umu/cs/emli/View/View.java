@@ -4,7 +4,6 @@ import se.umu.cs.emli.Model.Channel;
 import se.umu.cs.emli.Model.ChannelListModel;
 
 import javax.swing.*;
-import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import java.awt.*;
 import java.awt.event.ActionListener;
@@ -26,15 +25,41 @@ public class View {
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
 
+
         list = new JList<>(channelList);
-        setChannelList();
+        startChannelView();
 
         this.menuBar = buildJMenuBar();
         frame.setJMenuBar(this.menuBar);
-        setChannelView();
+
+    }
+    /**
+     * TESTA DETTA! PÅBÖRJAT LITE
+     * CardLayout cardLayout = new CardLayout();
+     * JPanel mainPanel = new JPanel(cardLayout);
+     *
+     * MenuPanel menu = new MenuPanel();
+     * GamePanel game = new GamePanel();
+     * mainPanel.add(menu, "menu");
+     * mainPanel.add(game, "game");
+     *
+     * ...
+     * public void gameOn() {
+     *     cardLayout.show(mainPanel, "game");
+     * }
+     */
+    private void startChannelView(){
+        JPanel panel = new JPanel(new BorderLayout());
+        panel.add(buildChannelViewHeader(),BorderLayout.NORTH);
+        panel.add(buildChannelList(),BorderLayout.CENTER);
+        /*
+        frame.add(buildChannelViewHeader(),BorderLayout.NORTH);
+        frame.add(buildChannelList(),BorderLayout.CENTER);*/
+        frame.add(panel);
     }
 
-    public void setChannelList(){
+
+    public JScrollPane buildChannelList(){
         JPanel panel = new JPanel();
         panel.setBorder(BorderFactory.createEmptyBorder(0, 10, 0,10));
 
@@ -49,15 +74,14 @@ public class View {
 
         JScrollPane scrollPane = new JScrollPane(panel,ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
                 ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-
-        frame.add(scrollPane,BorderLayout.CENTER);
+        return scrollPane;
     }
 
     public void setChannelListListener(ListSelectionListener listener){
         list.addListSelectionListener(listener);
     }
 
-    public void setChannelView(){
+    public JPanel buildChannelViewHeader(){
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         panel.setBorder(BorderFactory.createEmptyBorder(15, 10, 15,10));
@@ -79,7 +103,7 @@ public class View {
 
         panel.add(header);
         panel.add(description);
-        frame.add(panel,BorderLayout.NORTH);
+        return panel;
     }
 
 
