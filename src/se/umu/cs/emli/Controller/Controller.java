@@ -4,20 +4,20 @@ import se.umu.cs.emli.Model.ApiChannelParser;
 import se.umu.cs.emli.Model.Channel;
 import se.umu.cs.emli.Model.ChannelListModel;
 import se.umu.cs.emli.Model.ProgramTableModel;
-import se.umu.cs.emli.View.View;
+import se.umu.cs.emli.View.MainView;
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
 public class Controller {
-    private View view;
+    private MainView view;
     private ChannelListModel channelList;
 
     public Controller(){
 
         channelList = new ChannelListModel();
-        view = new View("RadioInfo", channelList);
+        view = new MainView(channelList);
         ApiChannelParser parser = new ApiChannelParser(view,channelList);
         parser.execute();
 

@@ -5,7 +5,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
-import se.umu.cs.emli.View.View;
+import se.umu.cs.emli.View.MainView;
 
 import javax.swing.*;
 import javax.xml.parsers.DocumentBuilder;
@@ -16,9 +16,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ApiChannelParser extends SwingWorker<ArrayList<Channel>,Channel> {
-    private View view;
+    private MainView view;
     private ChannelListModel channelList;
-    public ApiChannelParser(View view, ChannelListModel channelList){
+    public ApiChannelParser(MainView view, ChannelListModel channelList){
         this.view = view;
         this.channelList = channelList;
     }

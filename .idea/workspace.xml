@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e6704d4b-30a9-40f5-999d-f4a9d32c6c19" name="Changes" comment="Started some work with being able to change the view.">
+    <list default="true" id="e6704d4b-30a9-40f5-999d-f4a9d32c6c19" name="Changes" comment="Changing view when channel button is pressed working now.">
+      <change afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/View/BuildChannelPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/Controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/View/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/View/View.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/ApiChannelParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/ApiChannelParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/View/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/View/MainView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,8 +16,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -161,7 +163,13 @@
       <option name="presentableId" value="LOCAL−00016" />
       <updated>1671205578618</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL−00017" summary="Changing view when channel button is pressed working now.">
+      <created>1671441940793</created>
+      <option name="number" value="LOCAL−00017" />
+      <option name="presentableId" value="LOCAL−00017" />
+      <updated>1671441940793</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -192,6 +200,7 @@
     <MESSAGE value="Added status for programs. Also some comments on how to implement threads." />
     <MESSAGE value="Added some comments for threads." />
     <MESSAGE value="Started some work with being able to change the view." />
-    <option name="LAST_COMMIT_MESSAGE" value="Started some work with being able to change the view." />
+    <MESSAGE value="Changing view when channel button is pressed working now." />
+    <option name="LAST_COMMIT_MESSAGE" value="Changing view when channel button is pressed working now." />
   </component>
 </project>
