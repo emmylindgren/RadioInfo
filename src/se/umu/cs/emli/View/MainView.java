@@ -6,6 +6,7 @@ import se.umu.cs.emli.Model.ImageLoader;
 import se.umu.cs.emli.Model.ProgramTableModel;
 import javax.swing.*;
 import javax.swing.event.ListSelectionListener;
+import javax.swing.table.TableColumnModel;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
@@ -92,6 +93,10 @@ public class MainView {
 
     public void setTableau(ProgramTableModel model){
         tableau.setModel(model);
+        TableColumnModel columnModel = tableau.getColumnModel();
+        columnModel.getColumn(0).setPreferredWidth(250);
+        columnModel.getColumn(1).setPreferredWidth(20);
+        columnModel.getColumn(2).setPreferredWidth(20);
     }
     public void setTableauInfo(String name,String tagline,ImageIcon image){
         tableauHeader.setText(name);
