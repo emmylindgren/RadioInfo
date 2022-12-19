@@ -9,7 +9,6 @@ import se.umu.cs.emli.View.View;
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-import java.sql.SQLOutput;
 
 public class Controller {
     private View view;
@@ -29,7 +28,7 @@ public class Controller {
     //TODO: Set up this.
     private void setUpMenuListeners(){
         view.setUpdateMenuItemListener(e -> {System.out.println("Klick på uppdatera");});
-        view.setChannelMenuItemListener(e -> {System.out.println("Klick på channels");});
+        view.setChannelMenuItemListener(e -> {view.showChannelView();});
         view.setCancelItemListener(e -> {System.out.println("Klick på avsluta");});
     }
 
@@ -43,10 +42,12 @@ public class Controller {
                     Channel chan = (Channel)source.getSelectedValue();
                     String selected = "Vald kanal: " + chan.getName();
                     System.out.println(selected);
+
                     //Starta en vy med denna och ladda in kanalinfo
                     // där sätta lyssnare på den tabellen : om man väljer en ska popup med mer info
                     //visas: bild och beskrivning: bild laddas in på tråd?
                     ProgramTableModel model = chan.getTableau();
+                    view.showTableau();
                 }
             }
         });

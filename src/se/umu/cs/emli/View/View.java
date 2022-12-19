@@ -12,6 +12,8 @@ public class View {
     private JFrame frame;
     private JMenuBar menuBar;
     private JList<Channel> list;
+    private CardLayout cardLayout;
+    private JPanel layoutPanel;
 
     //TODO: När ska visa upp programtablå så blir de: JTable jTable=new JTable(programList);
     //            JScrollPane sPane=new JScrollPane(jTable);
@@ -25,39 +27,53 @@ public class View {
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
 
-
         list = new JList<>(channelList);
-        startChannelView();
+
+        cardLayout = new CardLayout();
+        layoutPanel = new JPanel(cardLayout);
 
         this.menuBar = buildJMenuBar();
         frame.setJMenuBar(this.menuBar);
+        frame.add(layoutPanel);
 
+        buildTableauView();
+        buildChannelView();
+
+        showChannelView();
     }
-    /**
-     * TESTA DETTA! PÅBÖRJAT LITE
-     * CardLayout cardLayout = new CardLayout();
-     * JPanel mainPanel = new JPanel(cardLayout);
-     *
-     * MenuPanel menu = new MenuPanel();
-     * GamePanel game = new GamePanel();
-     * mainPanel.add(menu, "menu");
-     * mainPanel.add(game, "game");
-     *
-     * ...
-     * public void gameOn() {
-     *     cardLayout.show(mainPanel, "game");
-     * }
-     */
-    private void startChannelView(){
-        JPanel panel = new JPanel(new BorderLayout());
-        panel.add(buildChannelViewHeader(),BorderLayout.NORTH);
-        panel.add(buildChannelList(),BorderLayout.CENTER);
-        /*
-        frame.add(buildChannelViewHeader(),BorderLayout.NORTH);
-        frame.add(buildChannelList(),BorderLayout.CENTER);*/
-        frame.add(panel);
+    private void buildChannelView(){
+        JPanel channelPanel = new JPanel(new BorderLayout());
+        channelPanel.add(buildChannelViewHeader(),BorderLayout.NORTH);
+        channelPanel.add(buildChannelList(),BorderLayout.CENTER);
+
+        layoutPanel.add(channelPanel,"channel");
     }
 
+    private void buildTableauView(){
+        JPanel tableauPanel = new JPanel(new BorderLayout());
+        tableauPanel.add(buildTableauViewHeader(),BorderLayout.NORTH);
+        //tableauPanel.add(buildChannelList(),BorderLayout.CENTER);
+        layoutPanel.add(tableauPanel,"tableau");
+    }
+
+    public void showTableau(){
+        cardLayout.show(layoutPanel,"tableau");
+    }
+    public void showChannelView(){
+        cardLayout.show(layoutPanel,"channel");
+    }
+
+    private JPanel buildTableauViewHeader(){
+        JPanel panel = new JPanel();
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+        panel.setBorder(BorderFactory.createEmptyBorder(15, 10, 15,10));
+
+        JLabel header = new JLabel("NÄSTA !!");
+        header.setAlignmentX(Component.LEFT_ALIGNMENT);
+        header.setFont(new Font("Inter", Font.BOLD, 25));
+        panel.add(header);
+        return panel;
+    }
 
     public JScrollPane buildChannelList(){
         JPanel panel = new JPanel();
@@ -81,7 +97,7 @@ public class View {
         list.addListSelectionListener(listener);
     }
 
-    public JPanel buildChannelViewHeader(){
+    private JPanel buildChannelViewHeader(){
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         panel.setBorder(BorderFactory.createEmptyBorder(15, 10, 15,10));
@@ -107,7 +123,7 @@ public class View {
     }
 
 
-    public JMenuBar buildJMenuBar(){
+    private JMenuBar buildJMenuBar(){
         JMenuBar bar = new JMenuBar();
         JMenu menu   = new JMenu("Meny");
         JMenuItem item1 = new JMenuItem("Alla Kanaler");

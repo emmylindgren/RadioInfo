@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e6704d4b-30a9-40f5-999d-f4a9d32c6c19" name="Changes" comment="Added some comments for threads.">
+    <list default="true" id="e6704d4b-30a9-40f5-999d-f4a9d32c6c19" name="Changes" comment="Started some work with being able to change the view.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/Controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Controller/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/View/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/View/View.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -154,7 +155,13 @@
       <option name="presentableId" value="LOCAL−00015" />
       <updated>1671180922321</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL−00016" summary="Started some work with being able to change the view.">
+      <created>1671205578618</created>
+      <option name="number" value="LOCAL−00016" />
+      <option name="presentableId" value="LOCAL−00016" />
+      <updated>1671205578618</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -184,6 +191,7 @@
     <MESSAGE value="Generated getters and updated tablemodel to display values." />
     <MESSAGE value="Added status for programs. Also some comments on how to implement threads." />
     <MESSAGE value="Added some comments for threads." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added some comments for threads." />
+    <MESSAGE value="Started some work with being able to change the view." />
+    <option name="LAST_COMMIT_MESSAGE" value="Started some work with being able to change the view." />
   </component>
 </project>
