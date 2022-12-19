@@ -2,6 +2,7 @@ package se.umu.cs.emli.Model;
 
 import org.w3c.dom.Element;
 import javax.swing.*;
+import java.awt.*;
 
 public class Channel {
     private String name;
@@ -65,9 +66,14 @@ public class Channel {
          */
     }
 
+    public String getTagline(){
+        return tagline;
+    }
     public ImageIcon getImageIcon(){
         return image;
     }
+    public ImageIcon getBiggerImageIcon(){ return new ImageIcon(image.getImage()
+            .getScaledInstance(100,100, Image.SCALE_SMOOTH));}
     //TODO: Remove later. Now for debugging.
     @Override
     public String toString() {
