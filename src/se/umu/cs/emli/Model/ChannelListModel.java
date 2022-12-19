@@ -22,8 +22,4 @@ public class ChannelListModel extends AbstractListModel<Channel> {
     public Channel getElementAt(int index) {
         return channels.get(index);
     }
-
-
-
-
 }

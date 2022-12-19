@@ -35,6 +35,16 @@ public class Controller {
                     Channel chan = (Channel)source.getSelectedValue();
 
                     ProgramTableModel model = chan.getTableau();
+                    /*
+                    Förslag:
+                    if(!chan.hasLoadedTableau){
+                        ny tableauworker(chan, true)
+                    }
+
+                    sen om man ska uppdatera : swingworker för att uppdatera?
+                        ny tableauworker(chan, false)
+                        Kom ihåg att kolla också om url är null först :)
+                     */
                     view.setTableau(model);
                     view.setTableauInfo(chan.getName(),chan.getTagline(),
                             chan.getBiggerImageIcon());

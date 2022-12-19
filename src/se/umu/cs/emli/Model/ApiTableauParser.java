@@ -10,10 +10,9 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.time.LocalDateTime;
-import java.util.Timer;
 
 //TODO: This should be done on a thread :)
-public class ApiTableauParser extends Timer {
+public class ApiTableauParser{
     private ProgramTableModel tableau;
     private String url;
 
@@ -51,7 +50,7 @@ public class ApiTableauParser extends Timer {
 
     //TODO: HANDLE EXCEPTIONS, where?
     //TODO: Hantera om 404.. Kanske de är exttt. Asså vissa url kan va fel :)
-    public void parseProgramsFromDate(LocalDateTime dateToGet, LocalDateTime start, LocalDateTime end) throws
+    private void parseProgramsFromDate(LocalDateTime dateToGet, LocalDateTime start, LocalDateTime end) throws
             ParserConfigurationException, IOException, SAXException {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();

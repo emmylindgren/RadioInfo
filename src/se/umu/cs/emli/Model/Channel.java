@@ -80,4 +80,7 @@ public class Channel {
         return "Name: "+name+ " image: "+imageURL+" tagline: "+tagline+ " type: "+channelType + " tablauURL: "+tableauURL;
     }
     public String getName(){return name;}
+    public String getTableauURL() {
+        return tableauURL;
+    }
 }
