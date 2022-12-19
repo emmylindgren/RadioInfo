@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e6704d4b-30a9-40f5-999d-f4a9d32c6c19" name="Changes" comment="Loading channel info working. Also fixed bug not being able to choose same channel two times in a row.">
-      <change afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Resources/refresh.png" afterDir="false" />
+    <list default="true" id="e6704d4b-30a9-40f5-999d-f4a9d32c6c19" name="Changes" comment="Loading channel tableau and displaying it now working. Currently not being done on a thread.">
+      <change afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/View/NiceTextArea.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/Controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/ApiChannelParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/ApiChannelParser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/ApiTableauParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/ApiTableauParser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/ImageLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/ImageLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/ProgramTableModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/ProgramTableModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/View/BuildChannelPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/View/BuildChannelPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/View/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/View/MainView.java" afterDir="false" />
     </list>
@@ -184,7 +184,13 @@
       <option name="presentableId" value="LOCAL−00019" />
       <updated>1671451592490</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL−00020" summary="Loading channel tableau and displaying it now working. Currently not being done on a thread.">
+      <created>1671459753999</created>
+      <option name="number" value="LOCAL−00020" />
+      <option name="presentableId" value="LOCAL−00020" />
+      <updated>1671459753999</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -218,6 +224,7 @@
     <MESSAGE value="Changing view when channel button is pressed working now." />
     <MESSAGE value="Cleaned up code and made one view-class." />
     <MESSAGE value="Loading channel info working. Also fixed bug not being able to choose same channel two times in a row." />
-    <option name="LAST_COMMIT_MESSAGE" value="Loading channel info working. Also fixed bug not being able to choose same channel two times in a row." />
+    <MESSAGE value="Loading channel tableau and displaying it now working. Currently not being done on a thread." />
+    <option name="LAST_COMMIT_MESSAGE" value="Loading channel tableau and displaying it now working. Currently not being done on a thread." />
   </component>
 </project>

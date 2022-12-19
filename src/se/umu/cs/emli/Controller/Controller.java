@@ -1,9 +1,6 @@
 package se.umu.cs.emli.Controller;
 
-import se.umu.cs.emli.Model.ApiChannelParser;
-import se.umu.cs.emli.Model.Channel;
-import se.umu.cs.emli.Model.ChannelListModel;
-import se.umu.cs.emli.Model.ProgramTableModel;
+import se.umu.cs.emli.Model.*;
 import se.umu.cs.emli.View.MainView;
 import javax.swing.*;
 
@@ -20,36 +17,46 @@ public class Controller {
 
         setUpMenuListeners();
         setUpJListListener();
+        //setUpJTableListener();
     }
 
-    //TODO: Set up the rest of menu listeners.
+    //TODO: Set up menu option update listener.
     private void setUpMenuListeners(){
         view.setUpdateMenuItemListener(e -> {System.out.println("Klick på uppdatera");});
         view.setChannelMenuItemListener(e -> {view.showChannelView();});
-        view.setCancelItemListener(e -> {System.out.println("Klick på avsluta");});
+        view.setCancelItemListener(e -> {System.exit(0);});
     }
 
-    //TODO: This is what should load the tablau for each channel. And update UI with that tablemodel:)
     private void setUpJListListener(){
         view.setChannelListListener(event -> {
             if (!event.getValueIsAdjusting()){
                 JList source = (JList)event.getSource();
                 if(source.getSelectedIndex() >= 0){
                     Channel chan = (Channel)source.getSelectedValue();
-                    System.out.println("Vald kanal: " + chan.getName());
-                    //Starta en vy med denna och ladda in kanalinfo
-                    // där sätta lyssnare på den tabellen : om man väljer en ska popup med mer info
-                    //visas: bild och beskrivning: bild laddas in på tråd?
-                    //TODO: Ladda in tablån, tog bort de nu för inte ska hämta för mycket hehe :)
-                    //TODO: Tablån ska sättas lyssnare på också! Visa bild och beskrivning.
+
                     ProgramTableModel model = chan.getTableau();
                     view.setTableau(model);
                     view.setTableauInfo(chan.getName(),chan.getTagline(),
                             chan.getBiggerImageIcon());
                     view.showTableauView();
+
                     source.clearSelection();
                 }
             }
         });
     }
+    //TODO: Tablån ska sättas lyssnare på också! Visa bild och beskrivning. Detta nedan fungerar ej just nu:)
+    // bör väl rimligtvis även de göras på tråd kanske, just att ladda in bild :)
+    /*
+    private void setUpJTableListener(){
+        view.setTableauTableListener(event -> {
+            JTable source = (JTable)event.getSource();
+            if (!event.getValueIsAdjusting()){
+                //Program program = (Program)source.getSelectedValue();
+                System.out.println(source.getValueAt(source.getSelectedRow(), 0).toString());
+
+            }
+           // System.out.println(table.getValueAt(table.getSelectedRow(), 0).toString());
+        });
+    }*/
 }

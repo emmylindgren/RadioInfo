@@ -12,7 +12,7 @@ import java.awt.event.ActionListener;
 public class MainView {
     private JFrame frame;
     private JMenuBar menuBar;
-    private JList<Channel> channelJlist;
+    private JList<Channel> channelJList;
     private CardLayout cardLayout;
     private JPanel layoutPanel;
     private JLabel tableauHeader;
@@ -23,15 +23,15 @@ public class MainView {
 
     public MainView(ChannelListModel channelList){
         buildFrameWithMenuBar();
-        channelJlist = new JList<>(channelList);
+        channelJList = new JList<>(channelList);
 
         cardLayout = new CardLayout();
         layoutPanel = new JPanel(cardLayout);
 
         frame.add(layoutPanel);
 
-        buildTableauView();
         buildChannelView();
+        buildTableauView();
 
         showChannelView();
     }
@@ -51,7 +51,7 @@ public class MainView {
     }
 
     private void buildChannelView(){
-        layoutPanel.add(new BuildChannelPanel(channelJlist).getPanel(),"channel");
+        layoutPanel.add(new BuildChannelPanel(channelJList).getPanel(),"channel");
     }
 
     private void buildTableauView(){
@@ -126,13 +126,8 @@ public class MainView {
         tableauHeader.setFont(new Font("Inter", Font.BOLD, 25));
         textPanel.add(tableauHeader);
 
-        tableauDescription = new JTextArea(" ");
-        tableauDescription.setFont(new Font("Inter", Font.PLAIN, 15));
-        tableauDescription.setLineWrap(true);
+        tableauDescription = new NiceTextArea("");
         tableauDescription.setMaximumSize(new Dimension(700, 600));
-        tableauDescription.setOpaque(false);
-        tableauDescription.setEditable(false);
-        tableauDescription.setAlignmentX(Component.LEFT_ALIGNMENT);
 
         textPanel.add(tableauDescription);
 
@@ -142,7 +137,6 @@ public class MainView {
 
         return panel;
     }
-
 
     private JMenuBar buildJMenuBar(){
         JMenuBar bar = new JMenuBar();
@@ -160,7 +154,7 @@ public class MainView {
     }
 
     public void setChannelListListener(ListSelectionListener listener){
-        channelJlist.addListSelectionListener(listener);
+        channelJList.addListSelectionListener(listener);
     }
     /**
      * Sets actionListener for first menu item in the menu.
@@ -183,5 +177,9 @@ public class MainView {
      */
     public void setCancelItemListener(ActionListener actionListener) {
         menuBar.getMenu(0).getItem(3).addActionListener(actionListener);
+    }
+
+    public void setTableauTableListener(ListSelectionListener listener){
+        tableau.getSelectionModel().addListSelectionListener(listener);
     }
 }

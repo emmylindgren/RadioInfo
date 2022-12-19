@@ -10,6 +10,7 @@ import java.util.Objects;
 /**
  * Class for loading images from URL. If URL is null or if the image could not be loaded an
  * image-not-found icon is returned instead.
+ * Also loads a refresh-icon with a smaller size.
  */
 public class ImageLoader {
     private final String imageNotFoundSrc = "../resources/image-not-found-icon.png";

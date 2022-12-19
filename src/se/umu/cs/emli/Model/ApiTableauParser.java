@@ -60,11 +60,8 @@ public class ApiTableauParser extends Timer {
         //Normalize the XML Structure
         document.getDocumentElement().normalize();
         //Get all the programs from XML
-
         NodeList programList = document.getElementsByTagName("scheduledepisode");
 
-        //TODO: Ta bort denna programs, för felsökning.
-        //ArrayList<Program> programs = new ArrayList<>();
         for (int i = 0; i < programList.getLength(); i++) {
             Node node = programList.item(i);
 
@@ -72,16 +69,9 @@ public class ApiTableauParser extends Timer {
                 Element programElement = (Element) node;
                 Program program = new Program(programElement);
                 if(program.isWithinRange(start,end)){
-                   // programs.add(program);
                     tableau.addChannel(program);
                 }
             }
         }
-        //ta bort, för kontroll.
-        //System.out.println("programmen sorterade :)");
-       /* for (Program prog:programs) {
-
-            System.out.println(prog);
-        }*/
     }
 }

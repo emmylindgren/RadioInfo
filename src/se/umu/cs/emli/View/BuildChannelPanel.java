@@ -5,7 +5,7 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * Class for building a JPanel with buttons for avaliable channels.
+ * Class for building a JPanel with buttons for available channels.
  */
 public class BuildChannelPanel {
     private final JList<Channel> list;
@@ -31,17 +31,11 @@ public class BuildChannelPanel {
         header.setAlignmentX(Component.LEFT_ALIGNMENT);
         header.setFont(new Font("Inter", Font.BOLD, 25));
 
-        //TODO: Update this description-text :)
-        JTextArea description = new JTextArea("Här kan du få information om Svergies Radios kanaler och deras tablåer" +
-                ". blabla nåt mer?" +
-                "Tryck här nere eller välj kanal uppe i menyn. Lite mer " +
-                "hjälp här om hur man använder programmet vore bra!");
-        description.setFont(new Font("Inter", Font.PLAIN, 15));
-        description.setLineWrap(true);
-        description.setMaximumSize(new Dimension(700, 600));
-        description.setOpaque(false);
-        description.setEditable(false);
-        description.setAlignmentX(Component.LEFT_ALIGNMENT);
+        NiceTextArea description = new NiceTextArea("Här kan du se information om Svergies Radios kanaler och " +
+                "deras tablåer. Klicka på en kanal för att se dess tablå. Tablån uppdateras sedan en gång i timmen, " +
+                "men du kan själv uppdatera tablån med " +
+                "hjälp av menyn eller uppdatera-knappen som finns på tablå-vyn.");
+        description.setMaximumSize(new Dimension(850, 600));
 
         panel.add(header);
         panel.add(description);
