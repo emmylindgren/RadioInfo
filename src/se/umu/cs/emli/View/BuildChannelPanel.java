@@ -1,7 +1,6 @@
 package se.umu.cs.emli.View;
 
 import se.umu.cs.emli.Model.Channel;
-
 import javax.swing.*;
 import java.awt.*;
 
@@ -9,8 +8,8 @@ import java.awt.*;
  * Class for building a JPanel with buttons for avaliable channels.
  */
 public class BuildChannelPanel {
-    private JList<Channel> list;
-    private JPanel channelPanel;
+    private final JList<Channel> list;
+    private final JPanel channelPanel;
 
     public BuildChannelPanel(JList<Channel> list){
         channelPanel = new JPanel(new BorderLayout());
@@ -32,6 +31,7 @@ public class BuildChannelPanel {
         header.setAlignmentX(Component.LEFT_ALIGNMENT);
         header.setFont(new Font("Inter", Font.BOLD, 25));
 
+        //TODO: Update this description-text :)
         JTextArea description = new JTextArea("Här kan du få information om Svergies Radios kanaler och deras tablåer" +
                 ". blabla nåt mer?" +
                 "Tryck här nere eller välj kanal uppe i menyn. Lite mer " +
@@ -61,8 +61,7 @@ public class BuildChannelPanel {
         list.setVisibleRowCount(15);
         panel.add(list);
 
-        JScrollPane scrollPane = new JScrollPane(panel,ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
+        return new JScrollPane(panel,ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
                 ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-        return scrollPane;
     }
 }

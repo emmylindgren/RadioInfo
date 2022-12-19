@@ -8,7 +8,7 @@ import java.util.ArrayList;
 // cell renderer eller så? :)
 public class ProgramTableModel extends AbstractTableModel {
     ArrayList<Program> programs;
-    private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("E, dd MMM HH:ss");
+    private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("E, dd MMM HH:mm");
     public ProgramTableModel(){
         programs = new ArrayList<>();
     }

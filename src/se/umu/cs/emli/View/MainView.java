@@ -2,6 +2,8 @@ package se.umu.cs.emli.View;
 
 import se.umu.cs.emli.Model.Channel;
 import se.umu.cs.emli.Model.ChannelListModel;
+import se.umu.cs.emli.Model.ImageLoader;
+import se.umu.cs.emli.Model.ProgramTableModel;
 import javax.swing.*;
 import javax.swing.event.ListSelectionListener;
 import java.awt.*;
@@ -16,9 +18,9 @@ public class MainView {
     private JLabel tableauHeader;
     private JTextArea tableauDescription;
     private JLabel tableauIconLabel;
+    private JTable tableau;
+    private  JButton updateButton;
 
-    //TODO: När ska visa upp programtablå så blir de: JTable jTable=new JTable(programList);
-    //            JScrollPane sPane=new JScrollPane(jTable);
     public MainView(ChannelListModel channelList){
         buildFrameWithMenuBar();
         channelJlist = new JList<>(channelList);
@@ -55,17 +57,49 @@ public class MainView {
     private void buildTableauView(){
         JPanel tableauPanel = new JPanel(new BorderLayout());
         tableauPanel.add(buildTableauViewHeader(),BorderLayout.NORTH);
-        //tableauPanel.add(buildChannelList(),BorderLayout.CENTER);
+        tableauPanel.add(buildTableau(),BorderLayout.CENTER);
         layoutPanel.add(tableauPanel,"tableau");
     }
 
+    private JPanel buildTableau(){
+        JPanel panel = new JPanel();
+        panel.setLayout(new BorderLayout());
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+        panel.setBorder(BorderFactory.createEmptyBorder(25, 15, 15,10));
+
+        JPanel tableauInfo = new JPanel();
+        tableauInfo.setLayout(new BorderLayout());
+        tableauInfo.setBorder(BorderFactory.createEmptyBorder(0, 0, 5,0));
+        JLabel header = new JLabel("Kanaltablå");
+        header.setAlignmentX(Component.LEFT_ALIGNMENT);
+        header.setFont(new Font("Inter", Font.BOLD, 25));
+
+        updateButton = new JButton();
+        updateButton.setIcon(new ImageLoader().loadRefreshIcon());
+
+        tableauInfo.add(header,BorderLayout.CENTER);
+        tableauInfo.add(updateButton,BorderLayout.EAST);
+        panel.add(tableauInfo);
+
+        tableau = new JTable();
+        tableau.setRowHeight(30);
+        JScrollPane scroll = new JScrollPane(tableau,ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
+                ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        panel.add(scroll,BorderLayout.CENTER);
+
+        return panel;
+    }
+
+    public void setTableau(ProgramTableModel model){
+        tableau.setModel(model);
+    }
     public void setTableauInfo(String name,String tagline,ImageIcon image){
         tableauHeader.setText(name);
         tableauDescription.setText(tagline);
         tableauIconLabel.setIcon(image);
     }
 
-    public void showTableau(){
+    public void showTableauView(){
         cardLayout.show(layoutPanel,"tableau");
         updateSetEnable(true);
     }
@@ -109,9 +143,6 @@ public class MainView {
         return panel;
     }
 
-    public void setChannelListListener(ListSelectionListener listener){
-        channelJlist.addListSelectionListener(listener);
-    }
 
     private JMenuBar buildJMenuBar(){
         JMenuBar bar = new JMenuBar();
@@ -128,6 +159,9 @@ public class MainView {
         return bar;
     }
 
+    public void setChannelListListener(ListSelectionListener listener){
+        channelJlist.addListSelectionListener(listener);
+    }
     /**
      * Sets actionListener for first menu item in the menu.
      * @param actionListener = the listener to set.

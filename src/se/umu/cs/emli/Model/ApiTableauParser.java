@@ -5,21 +5,17 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
-
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.Timer;
 
 //TODO: This should be done on a thread :)
 public class ApiTableauParser extends Timer {
     private ProgramTableModel tableau;
     private String url;
-    private static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'");
 
     public ApiTableauParser(ProgramTableModel tableau, String url){
         this.tableau = tableau;
@@ -55,18 +51,20 @@ public class ApiTableauParser extends Timer {
 
     //TODO: HANDLE EXCEPTIONS, where?
     //TODO: Hantera om 404.. Kanske de är exttt. Asså vissa url kan va fel :)
-    public void parseProgramsFromDate(LocalDateTime dateToGet, LocalDateTime start, LocalDateTime end) throws ParserConfigurationException, IOException, SAXException {
+    public void parseProgramsFromDate(LocalDateTime dateToGet, LocalDateTime start, LocalDateTime end) throws
+            ParserConfigurationException, IOException, SAXException {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
 
-        System.out.println("TIME TO GET: " +dateToGet);
         Document document = builder.parse(url+"&pagination=false"+"&date="+dateToGet);
         //Normalize the XML Structure
         document.getDocumentElement().normalize();
         //Get all the programs from XML
+
         NodeList programList = document.getElementsByTagName("scheduledepisode");
 
-        ArrayList<Program> programs = new ArrayList<>();
+        //TODO: Ta bort denna programs, för felsökning.
+        //ArrayList<Program> programs = new ArrayList<>();
         for (int i = 0; i < programList.getLength(); i++) {
             Node node = programList.item(i);
 
@@ -74,16 +72,16 @@ public class ApiTableauParser extends Timer {
                 Element programElement = (Element) node;
                 Program program = new Program(programElement);
                 if(program.isWithinRange(start,end)){
-                    //TODO: SHould be added to tablemodel :) Men va försiktig pga de är en tråd?
-                    programs.add(program);
+                   // programs.add(program);
+                    tableau.addChannel(program);
                 }
             }
         }
         //ta bort, för kontroll.
-        System.out.println("programmen sorterade :)");
-        for (Program prog:programs) {
+        //System.out.println("programmen sorterade :)");
+       /* for (Program prog:programs) {
 
             System.out.println(prog);
-        }
+        }*/
     }
 }

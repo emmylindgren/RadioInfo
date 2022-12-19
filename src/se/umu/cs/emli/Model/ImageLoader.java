@@ -13,6 +13,7 @@ import java.util.Objects;
  */
 public class ImageLoader {
     private final String imageNotFoundSrc = "../resources/image-not-found-icon.png";
+    private final String refreshIconSrc = "../resources/refresh.png";
 
     public ImageIcon loadImage(String imageURL){
         Image img = null;
@@ -33,6 +34,19 @@ public class ImageLoader {
         }
         if(img != null){
             img = img.getScaledInstance(60,60,Image.SCALE_SMOOTH);
+            return new ImageIcon(img);
+        }
+        return null;
+    }
+
+    public ImageIcon loadRefreshIcon(){
+        Image img = null;
+        try {
+            img = ImageIO.read(Objects.requireNonNull(Channel.class.getResource(refreshIconSrc)));
+        } catch (IOException| NullPointerException ignored) {
+        }
+        if(img !=null){
+            img = img.getScaledInstance(20,20,Image.SCALE_SMOOTH);
             return new ImageIcon(img);
         }
         return null;
