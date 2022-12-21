@@ -62,7 +62,7 @@ public class Program {
         else {
             status = Status.ONGOING;
         }
-        return startTime.isBefore(end) && startTime.isAfter(start);
+        return startTime.isBefore(end) && endTime.isAfter(start);
     }
 
     public LocalDateTime getStartTime() {
