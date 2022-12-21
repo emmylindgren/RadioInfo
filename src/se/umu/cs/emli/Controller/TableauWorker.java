@@ -8,6 +8,7 @@ public class TableauWorker extends SwingWorker<Object,Object> {
     private ApiTableauParser parser;
     private boolean repeats;
 
+    //Gör vi såhär så blir det två trådar = mer avancerat. Blir ju typ 3 med timer :) Perfekt
     public TableauWorker(Channel chan, boolean repeats){
         this.parser = new ApiTableauParser(chan.getTableau(),chan.getTableauURL());
         this.repeats = repeats;

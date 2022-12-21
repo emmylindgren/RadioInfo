@@ -13,9 +13,17 @@ public class ProgramTableModel extends AbstractTableModel {
         programs = new ArrayList<>();
     }
 
+    // en lösning kan vara: istället för add channels typ setTablaue då skickar man lista till den
+    // och gör den synchronized ?
     public void addChannel(Program program){
         programs.add(program);
         this.fireTableRowsInserted(programs.size(), programs.size());
+    }
+
+    //enligt nedan typ :)
+    public synchronized void setTableau(ArrayList<Program> programs){
+        this.programs = programs;
+        this.fireTableDataChanged();
     }
 
     @Override
