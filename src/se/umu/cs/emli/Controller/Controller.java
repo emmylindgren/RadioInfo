@@ -12,11 +12,9 @@ public class Controller {
     private ChannelListModel channelList;
 
     public Controller(){
-
         channelList = new ChannelListModel();
         view = new MainView(channelList);
-        ApiChannelParser parser = new ApiChannelParser(view,channelList);
-        parser.execute();
+        new ChannelWorker(view,channelList).execute();
 
         setUpMenuListeners();
         setUpJListListener();
@@ -38,7 +36,7 @@ public class Controller {
                     Channel chan = (Channel)source.getSelectedValue();
 
                     if(chan.getTableauURL() == null){
-                        view.showNoTableau();
+                        view.showInformation("Ingen tablå för den här kanalen hittades");
                     }
                     else{
                         ProgramTableModel model = chan.getTableau();
@@ -46,12 +44,11 @@ public class Controller {
                         view.setTableauInfo(chan.getName(),chan.getTagline(),
                                 chan.getBiggerImageIcon());
                         view.showTableauView();
-                        if(!chan.hasHashedTableau()){
+                        if(!chan.hasHashedTableau()) {
 
                             ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(0);
-                            scheduler.scheduleAtFixedRate(()->{;},
-                                        0, 10, TimeUnit.SECONDS);
-
+                            scheduler.scheduleAtFixedRate(() -> { new TableauWorker(chan,view).execute();},
+                                    0, 10, TimeUnit.SECONDS);
                         }
                     }
                     source.clearSelection();

@@ -35,7 +35,7 @@ public class TableauWorker extends SwingWorker<ArrayList<Program>,Object> {
             errorMsg = "Something went wrong";
             return null;
         } catch (IOException e) {
-            errorMsg = "Something went wrong";
+            errorMsg = "Something went wrong IO";
             return null;
         } catch (SAXException e) {
             errorMsg = "Something went wrong";
@@ -48,15 +48,14 @@ public class TableauWorker extends SwingWorker<ArrayList<Program>,Object> {
         try {
             ArrayList<Program> tableauList = get();
             if(tableauList == null){
-                System.out.println("de vart fel");
+                System.out.println(errorMsg);
                 //Här vill vi att timer ska sluta och sätta hashashed till false.
                 //chan.setHasHashedTableau(false);
                 //exception used for testing i guess
-                //throw new RuntimeException();
+                throw new RuntimeException();
 
                 //display errorMsg och se till att startsidan visas? :)
                 // och kasta exception så timer stängs av :)
-
             }
             else{
                 System.out.println("setting tablå "+ chan.getName());

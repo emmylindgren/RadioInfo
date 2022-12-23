@@ -37,9 +37,9 @@ public class MainView {
         showChannelView();
     }
 
-    public void showNoTableau(){
+    public void showInformation(String info){
         Object[] options = {"OK"};
-        JOptionPane.showOptionDialog(null, "Kanalen har ingen tillgänglig tablå", "Information",
+        JOptionPane.showOptionDialog(null, info, "Information",
                 JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE,
                 null, options, options[0]);
     }
