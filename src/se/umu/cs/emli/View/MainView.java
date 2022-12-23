@@ -37,11 +37,19 @@ public class MainView {
         showChannelView();
     }
 
+    public void showNoTableau(){
+        Object[] options = {"OK"};
+        JOptionPane.showOptionDialog(null, "Kanalen har ingen tillgänglig tablå", "Information",
+                JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE,
+                null, options, options[0]);
+    }
+
     private void buildFrameWithMenuBar() {
         frame = new JFrame();
         frame.setTitle("RadioInfo");
         frame.setSize(new Dimension(950, 600));
-        frame.setResizable(false);
+        //TODO: Set this back maybe?
+        //frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new BorderLayout());
         frame.setVisible(true);

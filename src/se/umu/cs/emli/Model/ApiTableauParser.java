@@ -10,46 +10,41 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 
-//TODO: This should be done on a thread :)
+//TODO: Comment :)
 public class ApiTableauParser{
     private ProgramTableModel tableau;
+    private ArrayList<Program> tableauList;
     private String url;
 
     public ApiTableauParser(ProgramTableModel tableau, String url){
         this.tableau = tableau;
         this.url = url;
+        this.tableauList = new ArrayList<>();
     }
 
-    public void loadTableau(){
+    public ArrayList<Program> loadTableau() throws ParserConfigurationException, IOException, SAXException {
         LocalDateTime now = LocalDateTime.now();
         LocalDateTime start = now.minusHours(6);
         LocalDateTime end = now.plusHours(12);
 
         int hour = now.getHour();
-        try {
-            if(hour < 6){
-                parseProgramsFromDate(now.minusDays(1),start,end);
-                parseProgramsFromDate(now,start,end);
-            }
-            else if(hour > 12 || (hour == 12 && now.getMinute() > 0)){
-                parseProgramsFromDate(now,start,end);
-                parseProgramsFromDate(now.plusDays(1),start,end);
-            }
-            else{
-                parseProgramsFromDate(now,start,end);
-            }
-        } catch (ParserConfigurationException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (SAXException e) {
-            throw new RuntimeException(e);
-        }
-    }
 
-    //TODO: HANDLE EXCEPTIONS, where?
-    //TODO: Hantera om 404.. Kanske de är exttt. Asså vissa url kan va fel :)
+        if(hour < 6){
+            parseProgramsFromDate(now.minusDays(1),start,end);
+            parseProgramsFromDate(now,start,end);
+        }
+        else if(hour > 12 || (hour == 12 && now.getMinute() > 0)){
+            parseProgramsFromDate(now,start,end);
+            parseProgramsFromDate(now.plusDays(1),start,end);
+        }
+        else{
+            parseProgramsFromDate(now,start,end);
+        }
+
+        return tableauList;
+    }
     private void parseProgramsFromDate(LocalDateTime dateToGet, LocalDateTime start, LocalDateTime end) throws
             ParserConfigurationException, IOException, SAXException {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -68,7 +63,7 @@ public class ApiTableauParser{
                 Element programElement = (Element) node;
                 Program program = new Program(programElement);
                 if(program.isWithinRange(start,end)){
-                    tableau.addChannel(program);
+                    tableauList.add(program);
                 }
             }
         }

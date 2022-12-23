@@ -3,6 +3,9 @@ package se.umu.cs.emli.Controller;
 import se.umu.cs.emli.Model.*;
 import se.umu.cs.emli.View.MainView;
 import javax.swing.*;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 public class Controller {
     private MainView view;
@@ -34,22 +37,23 @@ public class Controller {
                 if(source.getSelectedIndex() >= 0){
                     Channel chan = (Channel)source.getSelectedValue();
 
-                    ProgramTableModel model = chan.getTableau();
-                    /*
-                    Förslag:
-                    if(!chan.hasLoadedTableau){
-                        ny tableauworker(chan, true)
+                    if(chan.getTableauURL() == null){
+                        view.showNoTableau();
                     }
+                    else{
+                        ProgramTableModel model = chan.getTableau();
+                        view.setTableau(model);
+                        view.setTableauInfo(chan.getName(),chan.getTagline(),
+                                chan.getBiggerImageIcon());
+                        view.showTableauView();
+                        if(!chan.hasHashedTableau()){
 
-                    sen om man ska uppdatera : swingworker för att uppdatera?
-                        ny tableauworker(chan, false)
-                        Kom ihåg att kolla också om url är null först :)
-                     */
-                    view.setTableau(model);
-                    view.setTableauInfo(chan.getName(),chan.getTagline(),
-                            chan.getBiggerImageIcon());
-                    view.showTableauView();
+                            ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(0);
+                            scheduler.scheduleAtFixedRate(()->{;},
+                                        0, 10, TimeUnit.SECONDS);
 
+                        }
+                    }
                     source.clearSelection();
                 }
             }

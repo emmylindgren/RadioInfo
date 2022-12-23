@@ -40,32 +40,15 @@ public class Channel {
         return null;
     }
 
+    public boolean hasHashedTableau(){
+        return hasHashedTableau;
+    }
+    public void setHasHashedTableau(boolean hasHashedTableau){
+        this.hasHashedTableau = hasHashedTableau;
+    }
     public ProgramTableModel getTableau() {
-        if(!hasHashedTableau){
-            loadTableau();
-        }
         return tableau;
     }
-
-    private void loadTableau(){
-        //TODO: Load tableau here first time. Maybe solwe the manual updates here too?
-        if(tableauURL == null){
-            //TODO: Fix nice prompt when URL is not found. Maybe move this logic to getTablau already :)
-            System.out.println("nulligt");
-        }
-        else{
-            //Skicka tablaue till worker och denna fyller tableu.
-            ApiTableauParser parser = new ApiTableauParser(tableau,tableauURL);
-            parser.loadTableau();
-            hasHashedTableau = true;
-        }
-        // Förslag:
-        /*
-        Används swingtimer för att starta en swingworker som updaterar GUI (eller ja modellen).
-        När starta: kolla om timer finns ; om den finns så stäng av & och skapa en ny. Dock ej trådsäkert :p
-         */
-    }
-
     public String getTagline(){
         return tagline;
     }
