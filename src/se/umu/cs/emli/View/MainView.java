@@ -44,6 +44,28 @@ public class MainView {
                 JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE,
                 null, options, options[0]);
     }
+    //TODO: Fixa denna metod, heta nåt annat? Ta in mer grejer osv :)
+    public void programInfo(String programName){
+        JDialog d = new JDialog(frame, "Programinformation");
+        JPanel panel =(JPanel)d.getContentPane();
+        panel.setBorder(BorderFactory.createEmptyBorder(20, 10, 20,10));
+        d.setLayout(new BorderLayout());
+
+        JLabel headLine = new JLabel(programName);
+        headLine.setAlignmentX(Component.LEFT_ALIGNMENT);
+        headLine.setFont(new Font("Inter", Font.BOLD, 18));
+
+        NiceTextArea informationText = new NiceTextArea("Programinfo här...");
+        ImageIcon image = new ImageLoader().loadImage(null);
+
+        d.add(informationText,BorderLayout.CENTER);
+        d.add(new JLabel(image),BorderLayout.WEST);
+        d.add(headLine,BorderLayout.NORTH);
+
+        d.pack();
+        d.setLocationRelativeTo(frame);
+        d.setVisible(true);
+    }
 
     private void buildFrameWithMenuBar() {
         frame = new JFrame();
@@ -177,22 +199,6 @@ public class MainView {
         tableau.addMouseListener(listener);
     }
     /**
-     *
-     *  table.addMouseListener(new MouseAdapter() {
-     *  public void mouseClicked(MouseEvent e) {
-     *   if (e.getClickCount() == 2) {
-     *    JTable target = (JTable)e.getSource();
-     *    int row = target.getSelectedRow();
-     *    int column = target.getSelectedColumn();
-     *    // do some action if appropriate column
-     *   }
-     *  }
-     * });
-     *     public void setTableauTableListener(ListSelectionListener listener){
-     *         tableau.getSelectionModel().addListSelectionListener(listener);
-     *     }
-     */
-    /**
      * Sets actionListener for first menu item in the menu.
      * @param actionListener = the listener to set.
      */
@@ -200,7 +206,8 @@ public class MainView {
         menuBar.getMenu(0).getItem(0).addActionListener(actionListener);
     }
     /**
-     * Sets actionListener for second menu item in the menu.
+     * Replaces actionListener for second menu item in the menu. If there is a listener on the
+     * menu item already it is replaced by the new one. If not, the new one is set.
      * @param actionListener = the listener to set.
      */
     public void replaceUpdateMenuItemListener(ActionListener actionListener) {

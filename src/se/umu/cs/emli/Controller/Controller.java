@@ -11,12 +11,11 @@ import java.util.concurrent.TimeUnit;
 
 public class Controller {
     private final MainView view;
-    private ChannelListModel channelList;
 
     public Controller(){
-        channelList = new ChannelListModel();
+        ChannelListModel channelList = new ChannelListModel();
         view = new MainView(channelList);
-        new ChannelWorker(view,channelList).execute();
+        new ChannelWorker(view, channelList).execute();
 
         setUpMenuListeners();
         setUpJListListener();
@@ -24,7 +23,7 @@ public class Controller {
     }
 
     private void setUpMenuListeners(){
-        view.setChannelMenuItemListener(e -> {view.showChannelView();});
+        view.setChannelMenuItemListener(e -> view.showChannelView());
         view.setCancelItemListener(e -> System.exit(0));
     }
     private void setUpJListListener(){
@@ -42,7 +41,7 @@ public class Controller {
                         updateView(chan, model);
                         if(!chan.hasHashedTableau()) {
                             ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
-                            scheduler.scheduleAtFixedRate(() -> { new TableauWorker(chan,view,scheduler).execute();},
+                            scheduler.scheduleAtFixedRate(() -> new TableauWorker(chan,view,scheduler).execute(),
                                     0, 60, TimeUnit.MINUTES);
                         }
                     }
@@ -51,15 +50,16 @@ public class Controller {
             }
         });
     }
-    //TODO: Fixa detta.Tablån ska sättas lyssnare på också! Visa bild och beskrivning. Detta nedan fungerar ej just nu:)
-    // bör väl rimligtvis även de göras på tråd kanske, just att ladda in bild :)
+    //TODO: Visa info om programmet! Med bild: ladda in den på egen tråd? Swing-worker?
     private void setUpJTableListener(){
         view.setTableauTableListener((new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
                 if (e.getClickCount() == 2) {
-                    JTable target = (JTable)e.getSource();
-                    ProgramTableModel model = (ProgramTableModel) target.getModel();
-                    System.out.println(model.getProgramFromRow(target.getSelectedRow()));
+                    JTable table = (JTable)e.getSource();
+                    ProgramTableModel model = (ProgramTableModel) table.getModel();
+                    Program program = model.getProgramFromRow(table.getSelectedRow());
+                    //view.showProgramInfo(program.getName());
+                    view.programInfo(program.getName());
                 }
             }
         }));
