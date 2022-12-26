@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e6704d4b-30a9-40f5-999d-f4a9d32c6c19" name="Changes" comment="Fixed errormessaging.">
+    <list default="true" id="e6704d4b-30a9-40f5-999d-f4a9d32c6c19" name="Changes" comment="Now working with timer for updates.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/Controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Controller/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/Controller/TableauWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Controller/TableauWorker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/ProgramTableModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/ProgramTableModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/View/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/View/MainView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -227,7 +229,13 @@
       <option name="presentableId" value="LOCAL−00027" />
       <updated>1671805846816</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL−00028" summary="Now working with timer for updates.">
+      <created>1672044441302</created>
+      <option name="number" value="LOCAL−00028" />
+      <option name="presentableId" value="LOCAL−00028" />
+      <updated>1672044441302</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -242,7 +250,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added models for a channels programs. Made tablemodel for that too." />
     <MESSAGE value="Started on the first view, the information page." />
     <MESSAGE value="Fixed xml parser to work even though some tags are missing." />
     <MESSAGE value="Made listmodel to show all channels. Images now loading too." />
@@ -267,6 +274,7 @@
     <MESSAGE value="Some comments and work on threads." />
     <MESSAGE value="Loading tableau now done on threads on timer. Exception handling not implemented yet." />
     <MESSAGE value="Fixed errormessaging." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed errormessaging." />
+    <MESSAGE value="Now working with timer for updates." />
+    <option name="LAST_COMMIT_MESSAGE" value="Now working with timer for updates." />
   </component>
 </project>

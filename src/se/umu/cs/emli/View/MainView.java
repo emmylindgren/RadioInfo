@@ -9,6 +9,7 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableColumnModel;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
 
 public class MainView {
     private JFrame frame;
@@ -20,7 +21,7 @@ public class MainView {
     private JTextArea tableauDescription;
     private JLabel tableauIconLabel;
     private JTable tableau;
-    private  JButton updateButton;
+    private JButton updateButton;
 
     public MainView(ChannelListModel channelList){
         buildFrameWithMenuBar();
@@ -92,6 +93,9 @@ public class MainView {
 
         tableau = new JTable();
         tableau.setRowHeight(30);
+        tableau.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        tableau.setRowSelectionAllowed(true);
+        tableau.setColumnSelectionAllowed(false);
         JScrollPane scroll = new JScrollPane(tableau,ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
                 ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         panel.add(scroll,BorderLayout.CENTER);
@@ -169,6 +173,25 @@ public class MainView {
     public void setChannelListListener(ListSelectionListener listener){
         channelJList.addListSelectionListener(listener);
     }
+    public void setTableauTableListener(MouseAdapter listener){
+        tableau.addMouseListener(listener);
+    }
+    /**
+     *
+     *  table.addMouseListener(new MouseAdapter() {
+     *  public void mouseClicked(MouseEvent e) {
+     *   if (e.getClickCount() == 2) {
+     *    JTable target = (JTable)e.getSource();
+     *    int row = target.getSelectedRow();
+     *    int column = target.getSelectedColumn();
+     *    // do some action if appropriate column
+     *   }
+     *  }
+     * });
+     *     public void setTableauTableListener(ListSelectionListener listener){
+     *         tableau.getSelectionModel().addListSelectionListener(listener);
+     *     }
+     */
     /**
      * Sets actionListener for first menu item in the menu.
      * @param actionListener = the listener to set.
@@ -180,7 +203,11 @@ public class MainView {
      * Sets actionListener for second menu item in the menu.
      * @param actionListener = the listener to set.
      */
-    public void setUpdateMenuItemListener(ActionListener actionListener) {
+    public void replaceUpdateMenuItemListener(ActionListener actionListener) {
+        if(menuBar.getMenu(0).getItem(1).getActionListeners().length > 0){
+            menuBar.getMenu(0).getItem(1)
+                    .removeActionListener(menuBar.getMenu(0).getItem(1).getActionListeners()[0]);
+        }
         menuBar.getMenu(0).getItem(1).addActionListener(actionListener);
     }
     /**
@@ -192,7 +219,10 @@ public class MainView {
         menuBar.getMenu(0).getItem(3).addActionListener(actionListener);
     }
 
-    public void setTableauTableListener(ListSelectionListener listener){
-        tableau.getSelectionModel().addListSelectionListener(listener);
+    public void replaceUpdateButtonListener(ActionListener actionListener){
+        if(updateButton.getActionListeners().length > 0){
+            updateButton.removeActionListener(updateButton.getActionListeners()[0]);
+        }
+        updateButton.addActionListener(actionListener);
     }
 }

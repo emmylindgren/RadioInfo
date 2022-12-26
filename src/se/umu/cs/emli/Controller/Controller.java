@@ -3,12 +3,14 @@ package se.umu.cs.emli.Controller;
 import se.umu.cs.emli.Model.*;
 import se.umu.cs.emli.View.MainView;
 import javax.swing.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 public class Controller {
-    private MainView view;
+    private final MainView view;
     private ChannelListModel channelList;
 
     public Controller(){
@@ -18,16 +20,13 @@ public class Controller {
 
         setUpMenuListeners();
         setUpJListListener();
-        //setUpJTableListener();
+        setUpJTableListener();
     }
 
-    //TODO: Set up menu option update listener.
     private void setUpMenuListeners(){
-        view.setUpdateMenuItemListener(e -> {System.out.println("Klick på uppdatera");});
         view.setChannelMenuItemListener(e -> {view.showChannelView();});
-        view.setCancelItemListener(e -> {System.exit(0);});
+        view.setCancelItemListener(e -> System.exit(0));
     }
-
     private void setUpJListListener(){
         view.setChannelListListener(event -> {
             if (!event.getValueIsAdjusting()){
@@ -40,14 +39,11 @@ public class Controller {
                     }
                     else{
                         ProgramTableModel model = chan.getTableau();
-                        view.setTableau(model);
-                        view.setTableauInfo(chan.getName(),chan.getTagline(),
-                                chan.getBiggerImageIcon());
-                        view.showTableauView();
+                        updateView(chan, model);
                         if(!chan.hasHashedTableau()) {
                             ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
                             scheduler.scheduleAtFixedRate(() -> { new TableauWorker(chan,view,scheduler).execute();},
-                                    0, 10, TimeUnit.SECONDS);
+                                    0, 60, TimeUnit.MINUTES);
                         }
                     }
                     source.clearSelection();
@@ -55,18 +51,29 @@ public class Controller {
             }
         });
     }
-    //TODO: Tablån ska sättas lyssnare på också! Visa bild och beskrivning. Detta nedan fungerar ej just nu:)
+    //TODO: Fixa detta.Tablån ska sättas lyssnare på också! Visa bild och beskrivning. Detta nedan fungerar ej just nu:)
     // bör väl rimligtvis även de göras på tråd kanske, just att ladda in bild :)
-    /*
     private void setUpJTableListener(){
-        view.setTableauTableListener(event -> {
-            JTable source = (JTable)event.getSource();
-            if (!event.getValueIsAdjusting()){
-                //Program program = (Program)source.getSelectedValue();
-                System.out.println(source.getValueAt(source.getSelectedRow(), 0).toString());
-
+        view.setTableauTableListener((new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+                if (e.getClickCount() == 2) {
+                    JTable target = (JTable)e.getSource();
+                    ProgramTableModel model = (ProgramTableModel) target.getModel();
+                    System.out.println(model.getProgramFromRow(target.getSelectedRow()));
+                }
             }
-           // System.out.println(table.getValueAt(table.getSelectedRow(), 0).toString());
-        });
-    }*/
+        }));
+    }
+    private void updateView(Channel chan, ProgramTableModel model) {
+        view.setTableau(model);
+        view.setTableauInfo(chan.getName(), chan.getTagline(),
+                chan.getBiggerImageIcon());
+        view.showTableauView();
+        view.replaceUpdateButtonListener(e -> manualUpdate(chan));
+        view.replaceUpdateMenuItemListener(e -> manualUpdate(chan));
+    }
+
+    private void manualUpdate(Channel chan){
+        new TableauWorker(chan,view,null).execute();
+    }
 }

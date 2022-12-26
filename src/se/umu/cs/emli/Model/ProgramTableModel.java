@@ -49,6 +49,9 @@ public class ProgramTableModel extends AbstractTableModel {
             default -> null;
         };
     }
+    public Program getProgramFromRow(int rowIndex){
+        return programs.get(rowIndex);
+    }
 
     @Override
     public String getColumnName(int columnIndex) {

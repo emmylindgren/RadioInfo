@@ -34,10 +34,10 @@ public class TableauWorker extends SwingWorker<ArrayList<Program>,Object> {
         try {
             return parser.loadTableau();
         } catch (ParserConfigurationException | SAXException e) {
-            errorMsg = "Något gick fel vid inläsningen av tablån.";
+            errorMsg = "Något gick fel vid inläsningen av tablån för " + chan.getName();
             return null;
         } catch (IOException e) {
-            errorMsg = "Tablån för den här kanalen kunde inte hittas. Kontrollera din uppkoppling.";
+            errorMsg = "Tablån för "+ chan.getName() + " kunde inte hittas. Kontrollera din uppkoppling.";
             return null;
         }
     }
@@ -48,15 +48,16 @@ public class TableauWorker extends SwingWorker<ArrayList<Program>,Object> {
             ArrayList<Program> tableauList = get();
             if(tableauList == null){
                 view.showInformation(errorMsg);
-                scheduler.shutdown();
+                if(scheduler != null) scheduler.shutdown();
                 chan.setHasHashedTableau(false);
             }
             else{
                 tableau.setTableau(tableauList);
                 chan.setHasHashedTableau(true);
+                System.out.println("Tablån "+ chan.getName() +" är satt");
             }
         } catch (InterruptedException | ExecutionException e) {
-            view.showInformation("Något gick fel vid inläsningen av tablån.");
+            view.showInformation("Något gick fel vid inläsningen av tablån för "+ chan.getName());
         }
     }
 }
