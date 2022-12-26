@@ -36,7 +36,7 @@ public class Controller {
                     Channel chan = (Channel)source.getSelectedValue();
 
                     if(chan.getTableauURL() == null){
-                        view.showInformation("Ingen tablå för den här kanalen hittades");
+                        view.showInformation("Det finns ingen tablå för den här kanalen");
                     }
                     else{
                         ProgramTableModel model = chan.getTableau();
@@ -45,9 +45,8 @@ public class Controller {
                                 chan.getBiggerImageIcon());
                         view.showTableauView();
                         if(!chan.hasHashedTableau()) {
-
-                            ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(0);
-                            scheduler.scheduleAtFixedRate(() -> { new TableauWorker(chan,view).execute();},
+                            ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
+                            scheduler.scheduleAtFixedRate(() -> { new TableauWorker(chan,view,scheduler).execute();},
                                     0, 10, TimeUnit.SECONDS);
                         }
                     }
