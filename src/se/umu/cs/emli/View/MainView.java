@@ -1,9 +1,7 @@
 package se.umu.cs.emli.View;
 
-import se.umu.cs.emli.Model.Channel;
-import se.umu.cs.emli.Model.ChannelListModel;
-import se.umu.cs.emli.Model.ImageLoader;
-import se.umu.cs.emli.Model.ProgramTableModel;
+import se.umu.cs.emli.Model.*;
+
 import javax.swing.*;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableColumnModel;
@@ -128,6 +126,8 @@ public class MainView {
         tableau.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         tableau.setRowSelectionAllowed(true);
         tableau.setColumnSelectionAllowed(false);
+        //TODO: Fixa så detta funkar med färger? Den kallas inte! kolla upp hur man faktiskt sätter den
+        tableau.setDefaultRenderer(Program.class, new ProgramRenderer());
         JScrollPane scroll = new JScrollPane(tableau,ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
                 ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         panel.add(scroll,BorderLayout.CENTER);
