@@ -50,7 +50,6 @@ public class Controller {
             }
         });
     }
-    //TODO: Visa info om programmet! Med bild: ladda in den på egen tråd? Swing-worker?
     private void setUpJTableListener(){
         view.setTableauTableListener((new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
@@ -59,8 +58,10 @@ public class Controller {
                     ProgramTableModel model = (ProgramTableModel) table.getModel();
                     Program program = model.getProgramFromRow(table.getSelectedRow());
 
+                    view.setWaitCursor(true);
                     if(program.getImage() == null){
-                        ImageWorker worker = new ImageWorker(program, ()->showProgramInfo(program));
+
+                        ProgramImageWorker worker = new ProgramImageWorker(program, ()->showProgramInfo(program));
                         worker.execute();
                         System.out.println("Laddar bild på worker för " + program.getName());
                     }
@@ -73,7 +74,9 @@ public class Controller {
     }
 
     private void showProgramInfo(Program program){
-        view.showProgramInfo(program.getName(), program.getDescription(), program.getStatus().toString(), program.getImage());
+        view.setWaitCursor(false);
+        view.showProgramInfo(program.getName(), program.getDescription(), program.getStatus().toString(),
+                program.getImage());
     }
     private void updateView(Channel chan, ProgramTableModel model) {
         view.setTableau(model);
@@ -83,7 +86,6 @@ public class Controller {
         view.replaceUpdateButtonListener(e -> manualUpdate(chan));
         view.replaceUpdateMenuItemListener(e -> manualUpdate(chan));
     }
-
     private void manualUpdate(Channel chan){
         new TableauWorker(chan,view,null).execute();
     }

@@ -17,14 +17,15 @@ public class Program {
 
     public Program(Element programElement){
         this.name = getElementFromTagName(programElement,"title");
+
         String subTitle = getElementFromTagName(programElement,"subtitle");
-        if(subTitle != null) this.name = this.name + " - " + subTitle;
+        if(subTitle != null) this.name = this.name + " " + subTitle;
+
         this.startTime = loadLocallyZonedTime(getElementFromTagName(programElement,"starttimeutc"));
         this.endTime = loadLocallyZonedTime(getElementFromTagName(programElement,"endtimeutc"));
         this.description = getElementFromTagName(programElement,"description");
         this.imageURL = getElementFromTagName(programElement,"imageurl");
     }
-
     /**
      * Loads zoned time from dateTime in string format, and returns it as a local date time.
      * @param dateTimeString, the date in string format.

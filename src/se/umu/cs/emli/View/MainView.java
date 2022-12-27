@@ -72,6 +72,11 @@ public class MainView {
         d.setVisible(true);
     }
 
+    public void setWaitCursor(boolean waitCursor){
+        if(waitCursor) frame.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        else frame.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+    }
+
     private void buildFrameWithMenuBar() {
         frame = new JFrame();
         frame.setTitle("RadioInfo");

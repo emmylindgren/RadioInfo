@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e6704d4b-30a9-40f5-999d-f4a9d32c6c19" name="Changes" comment="Status now showing with the info about a program">
-      <change afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Controller/CallbackInterface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Controller/ImageWorker.java" afterDir="false" />
+    <list default="true" id="e6704d4b-30a9-40f5-999d-f4a9d32c6c19" name="Changes" comment="Image for program now loading on worker.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/Controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/Controller/ImageWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Controller/ProgramImageWorker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/Program.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/View/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/View/MainView.java" afterDir="false" />
     </list>
@@ -259,7 +258,13 @@
       <option name="presentableId" value="LOCAL−00031" />
       <updated>1672127525013</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL−00032" summary="Image for program now loading on worker.">
+      <created>1672130524452</created>
+      <option name="number" value="LOCAL−00032" />
+      <option name="presentableId" value="LOCAL−00032" />
+      <updated>1672130524452</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -274,7 +279,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Moved around logic. Cleaned up code." />
     <MESSAGE value="Moved around logic. Cleared up worker a bit." />
     <MESSAGE value="Cleaned up some more." />
     <MESSAGE value="Loading todays tableau working.&#10; No date sorting implemented." />
@@ -299,6 +303,7 @@
     <MESSAGE value="Doubleclicking row on table now working. Not showing any additional info yet." />
     <MESSAGE value="Started working on showing more info about a program." />
     <MESSAGE value="Status now showing with the info about a program" />
-    <option name="LAST_COMMIT_MESSAGE" value="Status now showing with the info about a program" />
+    <MESSAGE value="Image for program now loading on worker." />
+    <option name="LAST_COMMIT_MESSAGE" value="Image for program now loading on worker." />
   </component>
 </project>
