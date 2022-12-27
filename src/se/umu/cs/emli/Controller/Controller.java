@@ -63,6 +63,7 @@ public class Controller {
 
                         ProgramImageWorker worker = new ProgramImageWorker(program, ()->showProgramInfo(program));
                         worker.execute();
+                        //TODO: Remove this :)
                         System.out.println("Laddar bild på worker för " + program.getName());
                     }
                     else{

@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e6704d4b-30a9-40f5-999d-f4a9d32c6c19" name="Changes" comment="Image for program now loading on worker.">
+    <list default="true" id="e6704d4b-30a9-40f5-999d-f4a9d32c6c19" name="Changes" comment="Cleaned up some code.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/Controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/Controller/ImageWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Controller/ProgramImageWorker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/Program.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/View/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/View/MainView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/ImageLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/ImageLoader.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -264,7 +262,13 @@
       <option name="presentableId" value="LOCAL−00032" />
       <updated>1672130524452</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL−00033" summary="Cleaned up some code.">
+      <created>1672131776172</created>
+      <option name="number" value="LOCAL−00033" />
+      <option name="presentableId" value="LOCAL−00033" />
+      <updated>1672131776172</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -292,7 +296,6 @@
     <MESSAGE value="Cleaned up code and made one view-class." />
     <MESSAGE value="Loading channel info working. Also fixed bug not being able to choose same channel two times in a row." />
     <MESSAGE value="Loading channel tableau and displaying it now working. Currently not being done on a thread." />
-    <MESSAGE value="Cleaned up some code." />
     <MESSAGE value="Fixed up tableau a little." />
     <MESSAGE value="Started working on some threads." />
     <MESSAGE value="Changed logic on which programs to load on tableau." />
@@ -304,6 +307,7 @@
     <MESSAGE value="Started working on showing more info about a program." />
     <MESSAGE value="Status now showing with the info about a program" />
     <MESSAGE value="Image for program now loading on worker." />
-    <option name="LAST_COMMIT_MESSAGE" value="Image for program now loading on worker." />
+    <MESSAGE value="Cleaned up some code." />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleaned up some code." />
   </component>
 </project>
