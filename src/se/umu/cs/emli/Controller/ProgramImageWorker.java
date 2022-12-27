@@ -2,8 +2,6 @@ package se.umu.cs.emli.Controller;
 
 import se.umu.cs.emli.Model.ImageLoader;
 import se.umu.cs.emli.Model.Program;
-import se.umu.cs.emli.View.MainView;
-
 import javax.swing.*;
 import java.util.concurrent.ExecutionException;
 
@@ -18,7 +16,7 @@ public class ProgramImageWorker extends SwingWorker<ImageIcon,Object> {
     @Override
     protected ImageIcon doInBackground() {
         ImageLoader loader = new ImageLoader();
-        return loader.loadImage(program.getImageURL());
+        return loader.loadImageIcon(program.getImageURL(),130,130);
     }
 
     @Override

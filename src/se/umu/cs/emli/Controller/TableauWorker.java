@@ -54,7 +54,6 @@ public class TableauWorker extends SwingWorker<ArrayList<Program>,Object> {
             else{
                 tableau.setTableau(tableauList);
                 chan.setHasHashedTableau(true);
-                System.out.println("Tablån "+ chan.getName() +" är satt");
             }
         } catch (InterruptedException | ExecutionException e) {
             view.showInformation("Något gick fel vid inläsningen av tablån för "+ chan.getName());

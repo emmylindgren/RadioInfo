@@ -23,7 +23,7 @@ public class Channel {
         this.channelType = getElementFromTagName(channelElement,"channeltype");
         this.tableau = new ProgramTableModel();
         this.hasHashedTableau = false;
-        this.image = new ImageLoader().loadImage(imageURL);
+        this.image = new ImageLoader().loadImageIcon(imageURL,100,100);
     }
 
     /**
@@ -52,11 +52,11 @@ public class Channel {
     public String getTagline(){
         return tagline;
     }
-    public ImageIcon getImageIcon(){
-        return image;
+    public ImageIcon getSmallerImageIcon(){
+        return new ImageIcon(image.getImage()
+                .getScaledInstance(60,60, Image.SCALE_SMOOTH));
     }
-    public ImageIcon getBiggerImageIcon(){ return new ImageIcon(image.getImage()
-            .getScaledInstance(100,100, Image.SCALE_SMOOTH));}
+    public ImageIcon getBiggerImageIcon(){ return image;}
     //TODO: Remove later. Now for debugging.
     @Override
     public String toString() {

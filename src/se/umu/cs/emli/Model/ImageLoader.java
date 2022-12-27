@@ -16,7 +16,7 @@ public class ImageLoader {
     private final String imageNotFoundSrc = "../resources/image-not-found-icon.png";
     private final String refreshIconSrc = "../resources/refresh.png";
 
-    public ImageIcon loadImage(String imageURL){
+    public ImageIcon loadImageIcon(String imageURL, int width, int height){
         Image img = null;
         boolean loadImageNotFoundIcon = imageURL == null;
 
@@ -34,7 +34,7 @@ public class ImageLoader {
             }
         }
         if(img != null){
-            img = img.getScaledInstance(60,60,Image.SCALE_SMOOTH);
+            img = img.getScaledInstance(width,height,Image.SCALE_SMOOTH);
             return new ImageIcon(img);
         }
         return null;

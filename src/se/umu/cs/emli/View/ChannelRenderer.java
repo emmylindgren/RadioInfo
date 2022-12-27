@@ -9,7 +9,7 @@ public class ChannelRenderer extends JButton implements ListCellRenderer<Channel
     public Component getListCellRendererComponent(JList<? extends Channel> list, Channel value,
                                                   int index, boolean isSelected, boolean cellHasFocus) {
         setText(value.getName());
-        setIcon(value.getImageIcon());
+        setIcon(value.getSmallerImageIcon());
 
         setVerticalTextPosition(SwingConstants.BOTTOM);
         setHorizontalTextPosition(SwingConstants.CENTER);
