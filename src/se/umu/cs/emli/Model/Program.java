@@ -78,6 +78,9 @@ public class Program {
         return description;
     }
     public Status getStatus(){return status;}
+    public ImageIcon getImage(){return image;}
+    public void setImage(ImageIcon image){this.image = image;}
+    public String getImageURL() {return imageURL;}
 
     //TODO: Remove later. Now for debugging.
     @Override

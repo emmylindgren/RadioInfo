@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e6704d4b-30a9-40f5-999d-f4a9d32c6c19" name="Changes" comment="Started working on showing more info about a program.">
+    <list default="true" id="e6704d4b-30a9-40f5-999d-f4a9d32c6c19" name="Changes" comment="Status now showing with the info about a program">
+      <change afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Controller/CallbackInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Controller/ImageWorker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/Controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Controller/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/Program.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/Status.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/Status.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/View/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/View/MainView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -18,6 +19,7 @@
       <list>
         <option value="Enum" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -251,7 +253,13 @@
       <option name="presentableId" value="LOCAL−00030" />
       <updated>1672081928608</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL−00031" summary="Status now showing with the info about a program">
+      <created>1672127525013</created>
+      <option name="number" value="LOCAL−00031" />
+      <option name="presentableId" value="LOCAL−00031" />
+      <updated>1672127525013</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -266,7 +274,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Made listmodel to show all channels. Images now loading too." />
     <MESSAGE value="Moved around logic. Cleaned up code." />
     <MESSAGE value="Moved around logic. Cleared up worker a bit." />
     <MESSAGE value="Cleaned up some more." />
@@ -291,6 +298,7 @@
     <MESSAGE value="Now working with timer for updates." />
     <MESSAGE value="Doubleclicking row on table now working. Not showing any additional info yet." />
     <MESSAGE value="Started working on showing more info about a program." />
-    <option name="LAST_COMMIT_MESSAGE" value="Started working on showing more info about a program." />
+    <MESSAGE value="Status now showing with the info about a program" />
+    <option name="LAST_COMMIT_MESSAGE" value="Status now showing with the info about a program" />
   </component>
 </project>

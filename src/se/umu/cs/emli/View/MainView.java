@@ -45,7 +45,7 @@ public class MainView {
                 null, options, options[0]);
     }
     //TODO: Fixa denna metod, heta nåt annat? Ta in mer grejer osv :)
-    public void showProgramInfo(String programName, String programDescription, String status){
+    public void showProgramInfo(String programName, String programDescription, String status, ImageIcon icon){
         JDialog d = new JDialog(frame, "Programinformation");
         JPanel panel =(JPanel)d.getContentPane();
         panel.setBorder(BorderFactory.createEmptyBorder(20, 10, 20,10));
@@ -57,13 +57,13 @@ public class MainView {
 
         NiceTextArea informationText = new NiceTextArea(programDescription);
         informationText.setBorder(BorderFactory.createEmptyBorder(20,0,0,10));
-        ImageIcon image = new ImageLoader().loadImage(null);
+        //ImageIcon image = new ImageLoader().loadImage(null);
 
         NiceTextArea statusText = new NiceTextArea("Status: " + status);
         statusText.setFont(new Font("Inter", Font.ITALIC, 12));
 
         d.add(informationText,BorderLayout.CENTER);
-        d.add(new JLabel(image),BorderLayout.EAST);
+        d.add(new JLabel(icon),BorderLayout.EAST);
         d.add(headLine,BorderLayout.NORTH);
         d.add(statusText, BorderLayout.SOUTH);
 

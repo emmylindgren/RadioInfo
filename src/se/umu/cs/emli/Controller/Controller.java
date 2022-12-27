@@ -58,11 +58,22 @@ public class Controller {
                     JTable table = (JTable)e.getSource();
                     ProgramTableModel model = (ProgramTableModel) table.getModel();
                     Program program = model.getProgramFromRow(table.getSelectedRow());
-                    //view.showProgramInfo(program.getName());
-                    view.showProgramInfo(program.getName(), program.getDescription(), program.getStatus().toString());
+
+                    if(program.getImage() == null){
+                        ImageWorker worker = new ImageWorker(program, ()->showProgramInfo(program));
+                        worker.execute();
+                        System.out.println("Laddar bild på worker för " + program.getName());
+                    }
+                    else{
+                        showProgramInfo(program);
+                    }
                 }
             }
         }));
+    }
+
+    private void showProgramInfo(Program program){
+        view.showProgramInfo(program.getName(), program.getDescription(), program.getStatus().toString(), program.getImage());
     }
     private void updateView(Channel chan, ProgramTableModel model) {
         view.setTableau(model);
