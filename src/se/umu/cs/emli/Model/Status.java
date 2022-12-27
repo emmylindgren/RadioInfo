@@ -1,5 +1,10 @@
 package se.umu.cs.emli.Model;
-
 public enum Status {
-    ENDED, UPCOMING, ONGOING
+    ENDED("Avslutat"), UPCOMING("Kommande"), ONGOING("Pågående");
+    private String string;
+    Status(String string){this.string = string;}
+    @Override
+    public String toString() {
+        return string;
+    }
 }

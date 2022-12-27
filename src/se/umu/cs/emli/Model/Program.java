@@ -77,6 +77,7 @@ public class Program {
     public String getDescription() {
         return description;
     }
+    public Status getStatus(){return status;}
 
     //TODO: Remove later. Now for debugging.
     @Override

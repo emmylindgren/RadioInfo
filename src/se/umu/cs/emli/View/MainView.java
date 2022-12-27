@@ -45,22 +45,27 @@ public class MainView {
                 null, options, options[0]);
     }
     //TODO: Fixa denna metod, heta nåt annat? Ta in mer grejer osv :)
-    public void programInfo(String programName){
+    public void showProgramInfo(String programName, String programDescription, String status){
         JDialog d = new JDialog(frame, "Programinformation");
         JPanel panel =(JPanel)d.getContentPane();
         panel.setBorder(BorderFactory.createEmptyBorder(20, 10, 20,10));
         d.setLayout(new BorderLayout());
+        d.setPreferredSize(new Dimension(450,250));
 
-        JLabel headLine = new JLabel(programName);
-        headLine.setAlignmentX(Component.LEFT_ALIGNMENT);
+        NiceTextArea headLine = new NiceTextArea(programName);
         headLine.setFont(new Font("Inter", Font.BOLD, 18));
 
-        NiceTextArea informationText = new NiceTextArea("Programinfo här...");
+        NiceTextArea informationText = new NiceTextArea(programDescription);
+        informationText.setBorder(BorderFactory.createEmptyBorder(20,0,0,10));
         ImageIcon image = new ImageLoader().loadImage(null);
 
+        NiceTextArea statusText = new NiceTextArea("Status: " + status);
+        statusText.setFont(new Font("Inter", Font.ITALIC, 12));
+
         d.add(informationText,BorderLayout.CENTER);
-        d.add(new JLabel(image),BorderLayout.WEST);
+        d.add(new JLabel(image),BorderLayout.EAST);
         d.add(headLine,BorderLayout.NORTH);
+        d.add(statusText, BorderLayout.SOUTH);
 
         d.pack();
         d.setLocationRelativeTo(frame);

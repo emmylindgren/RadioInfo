@@ -59,7 +59,7 @@ public class Controller {
                     ProgramTableModel model = (ProgramTableModel) table.getModel();
                     Program program = model.getProgramFromRow(table.getSelectedRow());
                     //view.showProgramInfo(program.getName());
-                    view.programInfo(program.getName());
+                    view.showProgramInfo(program.getName(), program.getDescription(), program.getStatus().toString());
                 }
             }
         }));
