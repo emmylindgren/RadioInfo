@@ -54,8 +54,10 @@ public class BuildChannelPanel {
         list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         list.setVisibleRowCount(15);
         panel.add(list);
-
-        return new JScrollPane(panel,ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
+        JScrollPane pane = new JScrollPane(panel,ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
                 ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        pane.getVerticalScrollBar().setUnitIncrement(20);
+
+        return pane;
     }
 }

@@ -13,7 +13,6 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
@@ -22,8 +21,8 @@ import java.util.concurrent.ExecutionException;
  * Handles exceptions by showing information to the user.
  */
 public class ChannelWorker extends SwingWorker<Object, Channel> {
-    private MainView view;
-    private ChannelListModel channelList;
+    private final MainView view;
+    private final ChannelListModel channelList;
 
     public ChannelWorker(MainView view, ChannelListModel channelList){
         this.view = view;
@@ -39,7 +38,6 @@ public class ChannelWorker extends SwingWorker<Object, Channel> {
         document.getDocumentElement().normalize();
         //Get all channels from XML.
         NodeList nodeList = document.getElementsByTagName("channel");
-        ArrayList<Channel> channels = new ArrayList<>();
 
         for (int i = 0; i < nodeList.getLength(); i++)
         {
@@ -48,7 +46,6 @@ public class ChannelWorker extends SwingWorker<Object, Channel> {
             {
                 Element channelElement = (Element) node;
                 Channel chan = new Channel(channelElement);
-                channels.add(chan);
                 publish(chan);
             }
         }

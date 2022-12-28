@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e6704d4b-30a9-40f5-999d-f4a9d32c6c19" name="Changes" comment="Now rendering different colors depending on status.">
-      <change afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Resources/information.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/View/BuildDialog.java" afterDir="false" />
+    <list default="true" id="e6704d4b-30a9-40f5-999d-f4a9d32c6c19" name="Changes" comment="Some code clean up and refactoring. Also added informationbutton for tableau.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/ImageLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/ImageLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/Controller/ChannelWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Controller/ChannelWorker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/View/BuildChannelPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/View/BuildChannelPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/View/BuildDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/View/BuildDialog.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/View/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/View/MainView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -294,7 +294,13 @@
       <option name="presentableId" value="LOCAL−00037" />
       <updated>1672212799344</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL−00038" summary="Some code clean up and refactoring. Also added informationbutton for tableau.">
+      <created>1672215503008</created>
+      <option name="number" value="LOCAL−00038" />
+      <option name="presentableId" value="LOCAL−00038" />
+      <updated>1672215503008</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -309,7 +315,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Loading tableau working. Sorting after time." />
     <MESSAGE value="Moved the imageloading-logic to own class." />
     <MESSAGE value="Generated getters and updated tablemodel to display values." />
     <MESSAGE value="Added status for programs. Also some comments on how to implement threads." />
@@ -334,6 +339,7 @@
     <MESSAGE value="Fixed imageloading in different sizes. Also some cleanup." />
     <MESSAGE value="Started working on different colors depending on status." />
     <MESSAGE value="Now rendering different colors depending on status." />
-    <option name="LAST_COMMIT_MESSAGE" value="Now rendering different colors depending on status." />
+    <MESSAGE value="Some code clean up and refactoring. Also added informationbutton for tableau." />
+    <option name="LAST_COMMIT_MESSAGE" value="Some code clean up and refactoring. Also added informationbutton for tableau." />
   </component>
 </project>
