@@ -121,13 +121,12 @@ public class MainView {
         tableauInfo.add(updateButton,BorderLayout.EAST);
         panel.add(tableauInfo);
 
-        tableau = new JTable();
+        tableau = new JTable(new ProgramTableModel());
         tableau.setRowHeight(30);
         tableau.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         tableau.setRowSelectionAllowed(true);
         tableau.setColumnSelectionAllowed(false);
-        //TODO: Fixa så detta funkar med färger? Den kallas inte! kolla upp hur man faktiskt sätter den
-        tableau.setDefaultRenderer(Program.class, new ProgramRenderer());
+
         JScrollPane scroll = new JScrollPane(tableau,ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
                 ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         panel.add(scroll,BorderLayout.CENTER);
@@ -137,10 +136,13 @@ public class MainView {
 
     public void setTableau(ProgramTableModel model){
         tableau.setModel(model);
+
         TableColumnModel columnModel = tableau.getColumnModel();
         columnModel.getColumn(0).setPreferredWidth(250);
-        columnModel.getColumn(1).setPreferredWidth(20);
-        columnModel.getColumn(2).setPreferredWidth(20);
+        for (int i = 1; i < 3; i++) {
+            columnModel.getColumn(i).setPreferredWidth(20);
+            columnModel.getColumn(i).setCellRenderer(new ProgramRenderer());
+        }
     }
     public void setTableauInfo(String name,String tagline,ImageIcon image){
         tableauHeader.setText(name);

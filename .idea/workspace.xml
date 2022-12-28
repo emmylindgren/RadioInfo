@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e6704d4b-30a9-40f5-999d-f4a9d32c6c19" name="Changes" comment="Fixed imageloading in different sizes. Also some cleanup.">
-      <change afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/View/ProgramRenderer.java" afterDir="false" />
+    <list default="true" id="e6704d4b-30a9-40f5-999d-f4a9d32c6c19" name="Changes" comment="Started working on different colors depending on status.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/View/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/View/MainView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/View/ProgramRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/View/ProgramRenderer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -280,7 +280,13 @@
       <option name="presentableId" value="LOCAL−00035" />
       <updated>1672162149609</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL−00036" summary="Started working on different colors depending on status.">
+      <created>1672163536880</created>
+      <option name="number" value="LOCAL−00036" />
+      <option name="presentableId" value="LOCAL−00036" />
+      <updated>1672163536880</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -295,7 +301,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Cleaned up some more." />
     <MESSAGE value="Loading todays tableau working.&#10; No date sorting implemented." />
     <MESSAGE value="Loading tableau working. Sorting after time." />
     <MESSAGE value="Moved the imageloading-logic to own class." />
@@ -320,6 +325,7 @@
     <MESSAGE value="Image for program now loading on worker." />
     <MESSAGE value="Cleaned up some code." />
     <MESSAGE value="Fixed imageloading in different sizes. Also some cleanup." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed imageloading in different sizes. Also some cleanup." />
+    <MESSAGE value="Started working on different colors depending on status." />
+    <option name="LAST_COMMIT_MESSAGE" value="Started working on different colors depending on status." />
   </component>
 </project>
