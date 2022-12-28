@@ -13,18 +13,32 @@ import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ScheduledExecutorService;
 
+/**
+ * Swingworker to load tableau for a channel and update the ProgramTableModel (tableau) for that channel when
+ * done.
+ * If something goes wrong with the parsing then the worker is responsible for informing the user and also
+ * shutting down the scheduler that schedules the swingworker once an hour, so that no more involuntary updates
+ * are done after running in to a problem.
+ * @author Emmy Lindgren, id19eln.
+ */
 public class TableauWorker extends SwingWorker<ArrayList<Program>,Object> {
-    private ApiTableauParser parser;
-    private ProgramTableModel tableau;
-    private MainView view;
+    private final ApiTableauParser parser;
+    private final ProgramTableModel tableau;
+    private final MainView view;
     private String errorMsg;
-    private Channel chan;
-    private ScheduledExecutorService scheduler;
+    private final Channel chan;
+    private final ScheduledExecutorService scheduler;
 
+    /**
+     * Constructor for TableauWorker.
+     * @param chan, the channel from which to get the tableauURL from and also load the Tableau on.
+     * @param view, the view object.
+     * @param scheduler, the ScheduledExecutorService on which the TableauWorker is scheduled on.
+     */
     public TableauWorker(Channel chan, MainView view, ScheduledExecutorService scheduler){
         this.chan = chan;
         this.tableau = this.chan.getTableau();
-        this.parser = new ApiTableauParser(tableau,this.chan.getTableauURL());
+        this.parser = new ApiTableauParser(this.chan.getTableauURL());
         this.view = view;
         this.errorMsg = "";
         this.scheduler = scheduler;
@@ -41,7 +55,6 @@ public class TableauWorker extends SwingWorker<ArrayList<Program>,Object> {
             return null;
         }
     }
-
     @Override
     protected void done() {
         try {
@@ -49,11 +62,11 @@ public class TableauWorker extends SwingWorker<ArrayList<Program>,Object> {
             if(tableauList == null){
                 view.showInformation(errorMsg);
                 if(scheduler != null) scheduler.shutdown();
-                chan.setHasHashedTableau(false);
+                chan.setHasCachedTableau(false);
             }
             else{
                 tableau.setTableau(tableauList);
-                chan.setHasHashedTableau(true);
+                chan.setHasCachedTableau(true);
             }
         } catch (InterruptedException | ExecutionException e) {
             view.showInformation("Något gick fel vid inläsningen av tablån för "+ chan.getName());

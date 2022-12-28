@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e6704d4b-30a9-40f5-999d-f4a9d32c6c19" name="Changes" comment="Some code clean up and refactoring. Also added informationbutton for tableau.">
+    <list default="true" id="e6704d4b-30a9-40f5-999d-f4a9d32c6c19" name="Changes" comment="Comments and some clean up.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/Controller/CallbackInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Controller/CallbackInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/Controller/ChannelWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Controller/ChannelWorker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/View/BuildChannelPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/View/BuildChannelPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/View/BuildDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/View/BuildDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/View/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/View/MainView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/Controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/Controller/ProgramImageWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Controller/ProgramImageWorker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/Controller/TableauWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Controller/TableauWorker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/ApiTableauParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/ApiTableauParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/Channel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/Channel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/ChannelListModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/ChannelListModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/ImageLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/ImageLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/Program.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/ProgramTableModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/ProgramTableModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/Status.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/Status.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -300,7 +309,13 @@
       <option name="presentableId" value="LOCAL−00038" />
       <updated>1672215503008</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL−00039" summary="Some code clean up and refactoring. Slow scroll for channels also fixed.">
+      <created>1672247528562</created>
+      <option name="number" value="LOCAL−00039" />
+      <option name="presentableId" value="LOCAL−00039" />
+      <updated>1672247528562</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -315,8 +330,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Moved the imageloading-logic to own class." />
-    <MESSAGE value="Generated getters and updated tablemodel to display values." />
     <MESSAGE value="Added status for programs. Also some comments on how to implement threads." />
     <MESSAGE value="Added some comments for threads." />
     <MESSAGE value="Started some work with being able to change the view." />
@@ -340,6 +353,8 @@
     <MESSAGE value="Started working on different colors depending on status." />
     <MESSAGE value="Now rendering different colors depending on status." />
     <MESSAGE value="Some code clean up and refactoring. Also added informationbutton for tableau." />
-    <option name="LAST_COMMIT_MESSAGE" value="Some code clean up and refactoring. Also added informationbutton for tableau." />
+    <MESSAGE value="Some code clean up and refactoring. Slow scroll for channels also fixed." />
+    <MESSAGE value="Comments and some clean up." />
+    <option name="LAST_COMMIT_MESSAGE" value="Comments and some clean up." />
   </component>
 </project>

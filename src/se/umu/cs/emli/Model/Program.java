@@ -5,16 +5,24 @@ import javax.swing.*;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
-
+/**
+ * Model class to represent a Program in radioInfo.
+ * Loads a program from an XML-element containing program-information.
+ * @author Emmy Lindgren, id19eln.
+ */
 public class Program {
     private String name;
-    private LocalDateTime startTime;
-    private LocalDateTime endTime;
-    private String description;
-    private String imageURL;
+    private final LocalDateTime startTime;
+    private final LocalDateTime endTime;
+    private final String description;
+    private final String imageURL;
     private Status status;
-    private ImageIcon image; //TODO: Fix method for fetching image. Remember it will be called from EDT !! Så?..
+    private ImageIcon image;
 
+    /**
+     * Constructor for Program. Creates a Program from XML-element.
+     * @param programElement, the xml-element containing program information.
+     */
     public Program(Element programElement){
         this.name = getElementFromTagName(programElement,"title");
 
@@ -37,7 +45,6 @@ public class Program {
         dateTime = ZonedDateTime.ofInstant(dateTime.toInstant(), ZoneId.systemDefault());
         return dateTime.toLocalDateTime();
     }
-
     /**
      * Method to get value of tagName from element. Checks if the tagName exists, if it does the value
      * in form of a string is returned, otherwise null is returned.
@@ -51,7 +58,13 @@ public class Program {
         }
         return null;
     }
-
+    /**
+     * Checks whether the program is ongoing in interval between two times.
+     * Also sets the programs status according to right now (ended, ongoing or upcoming).
+     * @param start, the start-time of the interval to check.
+     * @param end, the end-time of the interval to check.
+     * @return boolean saying if program is ongoing in interval or not.
+     */
     public boolean isWithinRange(LocalDateTime start, LocalDateTime end){
         LocalDateTime now = LocalDateTime.now();
         if(endTime.isBefore(now)){
@@ -82,11 +95,4 @@ public class Program {
     public ImageIcon getImage(){return image;}
     public void setImage(ImageIcon image){this.image = image;}
     public String getImageURL() {return imageURL;}
-
-    //TODO: Remove later. Now for debugging.
-    @Override
-    public String toString() {
-        return "   Name: "+name+ " image: "+imageURL+" desc: "+description+ " start: "+startTime.toString()
-                + " end: "+ endTime.toString();
-    }
 }

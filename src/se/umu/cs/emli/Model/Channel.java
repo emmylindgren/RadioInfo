@@ -3,26 +3,29 @@ package se.umu.cs.emli.Model;
 import org.w3c.dom.Element;
 import javax.swing.*;
 import java.awt.*;
-
+/**
+ * Model class to represent a Channel in radioInfo.
+ * Loads a channel from an XML-element containing channel-information.
+ * Keeps track of channel-information and also channel-tableau, if any tableau is loaded.
+ * @author Emmy Lindgren, id19eln.
+ */
 public class Channel {
-    private String name;
-    private String imageURL;
-    private String tagline;
-    private String tableauURL;
-    private String channelType;
-    private ImageIcon image;
-    private ProgramTableModel tableau;
-    private boolean hasHashedTableau;
+    private final String name;
+    private final String tagline;
+    private final String tableauURL;
+    private final ImageIcon image;
+    private final ProgramTableModel tableau;
+    private boolean hasCachedTableau;
 
     public Channel(Element channelElement){
 
         this.name = channelElement.getAttribute("name");
-        this.imageURL = getElementFromTagName(channelElement,"image");
         this.tagline = getElementFromTagName(channelElement,"tagline");
         this.tableauURL = getElementFromTagName(channelElement,"scheduleurl");
-        this.channelType = getElementFromTagName(channelElement,"channeltype");
         this.tableau = new ProgramTableModel();
-        this.hasHashedTableau = false;
+        this.hasCachedTableau = false;
+
+        String imageURL = getElementFromTagName(channelElement, "image");
         this.image = new ImageLoader().loadImageIcon(imageURL,100,100);
     }
 
@@ -39,12 +42,11 @@ public class Channel {
         }
         return null;
     }
-
-    public boolean hasHashedTableau(){
-        return hasHashedTableau;
+    public boolean hasCachedTableau(){
+        return hasCachedTableau;
     }
-    public void setHasHashedTableau(boolean hasHashedTableau){
-        this.hasHashedTableau = hasHashedTableau;
+    public void setHasCachedTableau(boolean hasCachedTableau){
+        this.hasCachedTableau = hasCachedTableau;
     }
     public ProgramTableModel getTableau() {
         return tableau;
@@ -57,11 +59,6 @@ public class Channel {
                 .getScaledInstance(60,60, Image.SCALE_SMOOTH));
     }
     public ImageIcon getBiggerImageIcon(){ return image;}
-    //TODO: Remove later. Now for debugging.
-    @Override
-    public String toString() {
-        return "Name: "+name+ " image: "+imageURL+" tagline: "+tagline+ " type: "+channelType + " tablauURL: "+tableauURL;
-    }
     public String getName(){return name;}
     public String getTableauURL() {
         return tableauURL;

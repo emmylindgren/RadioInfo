@@ -12,14 +12,16 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
-//TODO: Comment :)
+/**
+ * Model used for parsing tableau-information from tableau-url.
+ * Loads all programs 6 hours back in time and 12 hours fourth.
+ * @author Emmy Lindgren, id19eln.
+ */
 public class ApiTableauParser{
-    private ProgramTableModel tableau;
-    private ArrayList<Program> tableauList;
-    private String url;
+    private final ArrayList<Program> tableauList;
+    private final String url;
 
-    public ApiTableauParser(ProgramTableModel tableau, String url){
-        this.tableau = tableau;
+    public ApiTableauParser(String url){
         this.url = url;
         this.tableauList = new ArrayList<>();
     }
@@ -51,9 +53,8 @@ public class ApiTableauParser{
         DocumentBuilder builder = factory.newDocumentBuilder();
 
         Document document = builder.parse(url+"&pagination=false"+"&date="+dateToGet);
-        //Normalize the XML Structure
         document.getDocumentElement().normalize();
-        //Get all the programs from XML
+
         NodeList programList = document.getElementsByTagName("scheduledepisode");
 
         for (int i = 0; i < programList.getLength(); i++) {

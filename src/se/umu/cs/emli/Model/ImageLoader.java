@@ -6,16 +6,20 @@ import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
-
 /**
  * Class for loading images from URL. If URL is null or if the image could not be loaded an
  * image-not-found icon is returned instead.
  * Also loads a refresh-icon with a smaller size.
+ * @author Emmy Lindgren, id19eln.
  */
 public class ImageLoader {
-    private final String imageNotFoundSrc = "../resources/image-not-found-icon.png";
-
-
+    /**
+     * Loads image-icon from URL with specified size.
+     * @param imageURL, the URL from which the image is to be loaded.
+     * @param width, the requested width for the image-icon.
+     * @param height, the requested height for the image-icon.
+     * @return the loaded image-icon.
+     */
     public ImageIcon loadImageIcon(String imageURL, int width, int height){
         Image img = null;
         boolean loadImageNotFoundIcon = imageURL == null;
@@ -29,6 +33,7 @@ public class ImageLoader {
         }
         if(loadImageNotFoundIcon){
             try {
+                String imageNotFoundSrc = "../resources/image-not-found-icon.png";
                 img = ImageIO.read(Objects.requireNonNull(Channel.class.getResource(imageNotFoundSrc)));
             } catch (IOException| NullPointerException ignored) {
             }
@@ -39,11 +44,17 @@ public class ImageLoader {
         }
         return null;
     }
-
+    /**
+     * Loads refresh-icon from project. Size 20 x 20.
+     * @return the loaded refresh-icon.
+     */
     public ImageIcon loadRefreshIcon(){
         return loadIcon("../resources/refresh.png");
     }
-
+    /**
+     * Loads load-icon from project. Size 20 x 20.
+     * @return the loaded load-icon.
+     */
     public ImageIcon loadInformationIcon(){
         return loadIcon("../resources/information.png");
     }

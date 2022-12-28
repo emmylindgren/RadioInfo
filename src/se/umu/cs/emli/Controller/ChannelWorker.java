@@ -17,8 +17,11 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 /**
- * Swingworker used to parse channel information.
+ * Swingworker used to parse channel information. Parses information from URL, that is sent to Channel-class
+ * for saving a Channel object for each channel. Updates the ChannelListModel for each channel loaded, thus
+ * updating the UI with each channel.
  * Handles exceptions by showing information to the user.
+ * @author Emmy Lindgren, id19eln.
  */
 public class ChannelWorker extends SwingWorker<Object, Channel> {
     private final MainView view;
@@ -34,9 +37,8 @@ public class ChannelWorker extends SwingWorker<Object, Channel> {
         DocumentBuilder builder = factory.newDocumentBuilder();
 
         Document document = builder.parse("http://api.sr.se/api/v2/channels?pagination=false");
-        //Normalize the XML Structure
         document.getDocumentElement().normalize();
-        //Get all channels from XML.
+
         NodeList nodeList = document.getElementsByTagName("channel");
 
         for (int i = 0; i < nodeList.getLength(); i++)
