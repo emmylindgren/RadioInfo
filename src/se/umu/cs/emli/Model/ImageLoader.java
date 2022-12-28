@@ -14,7 +14,7 @@ import java.util.Objects;
  */
 public class ImageLoader {
     private final String imageNotFoundSrc = "../resources/image-not-found-icon.png";
-    private final String refreshIconSrc = "../resources/refresh.png";
+
 
     public ImageIcon loadImageIcon(String imageURL, int width, int height){
         Image img = null;
@@ -41,9 +41,17 @@ public class ImageLoader {
     }
 
     public ImageIcon loadRefreshIcon(){
+        return loadIcon("../resources/refresh.png");
+    }
+
+    public ImageIcon loadInformationIcon(){
+        return loadIcon("../resources/information.png");
+    }
+
+    private ImageIcon loadIcon(String src){
         Image img = null;
         try {
-            img = ImageIO.read(Objects.requireNonNull(Channel.class.getResource(refreshIconSrc)));
+            img = ImageIO.read(Objects.requireNonNull(Channel.class.getResource(src)));
         } catch (IOException| NullPointerException ignored) {
         }
         if(img !=null){

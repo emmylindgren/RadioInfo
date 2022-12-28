@@ -21,6 +21,8 @@ public class MainView {
     private JTable tableau;
     private JButton updateButton;
 
+    private JButton informationButton;
+
     public MainView(ChannelListModel channelList){
         buildFrameWithMenuBar();
         channelJList = new JList<>(channelList);
@@ -42,32 +44,8 @@ public class MainView {
                 JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE,
                 null, options, options[0]);
     }
-    //TODO: Fixa denna metod, heta nåt annat? Ta in mer grejer osv :)
     public void showProgramInfo(String programName, String programDescription, String status, ImageIcon icon){
-        JDialog d = new JDialog(frame, "Programinformation");
-        JPanel panel =(JPanel)d.getContentPane();
-        panel.setBorder(BorderFactory.createEmptyBorder(20, 10, 20,10));
-        d.setLayout(new BorderLayout());
-        d.setPreferredSize(new Dimension(450,250));
-
-        NiceTextArea headLine = new NiceTextArea(programName);
-        headLine.setFont(new Font("Inter", Font.BOLD, 18));
-
-        NiceTextArea informationText = new NiceTextArea(programDescription);
-        informationText.setBorder(BorderFactory.createEmptyBorder(20,0,0,10));
-        //ImageIcon image = new ImageLoader().loadImage(null);
-
-        NiceTextArea statusText = new NiceTextArea("Status: " + status);
-        statusText.setFont(new Font("Inter", Font.ITALIC, 12));
-
-        d.add(informationText,BorderLayout.CENTER);
-        d.add(new JLabel(icon),BorderLayout.EAST);
-        d.add(headLine,BorderLayout.NORTH);
-        d.add(statusText, BorderLayout.SOUTH);
-
-        d.pack();
-        d.setLocationRelativeTo(frame);
-        d.setVisible(true);
+        new BuildDialog().buildProgramDialog(frame,programName,programDescription,status,icon);
     }
 
     public void setWaitCursor(boolean waitCursor){
@@ -101,6 +79,7 @@ public class MainView {
         layoutPanel.add(tableauPanel,"tableau");
     }
 
+    //TODO: För mkt i denna metod??
     private JPanel buildTableau(){
         JPanel panel = new JPanel();
         panel.setLayout(new BorderLayout());
@@ -114,11 +93,19 @@ public class MainView {
         header.setAlignmentX(Component.LEFT_ALIGNMENT);
         header.setFont(new Font("Inter", Font.BOLD, 25));
 
+        JPanel buttons = new JPanel();
+        ImageLoader loader = new ImageLoader();
         updateButton = new JButton();
-        updateButton.setIcon(new ImageLoader().loadRefreshIcon());
+        updateButton.setIcon(loader.loadRefreshIcon());
+        informationButton = new JButton();
+
+        informationButton.addActionListener(e -> new BuildDialog().buildInfoDialog(frame));
+        informationButton.setIcon(loader.loadInformationIcon());
+        buttons.add(informationButton);
+        buttons.add(updateButton);
 
         tableauInfo.add(header,BorderLayout.CENTER);
-        tableauInfo.add(updateButton,BorderLayout.EAST);
+        tableauInfo.add(buttons,BorderLayout.EAST);
         panel.add(tableauInfo);
 
         tableau = new JTable(new ProgramTableModel());
@@ -243,5 +230,9 @@ public class MainView {
             updateButton.removeActionListener(updateButton.getActionListeners()[0]);
         }
         updateButton.addActionListener(actionListener);
+    }
+
+    public void setInformationButtonListener(ActionListener actionListener){
+        informationButton.addActionListener(actionListener);
     }
 }
