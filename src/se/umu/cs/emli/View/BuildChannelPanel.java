@@ -3,25 +3,31 @@ package se.umu.cs.emli.View;
 import se.umu.cs.emli.Model.Channel;
 import javax.swing.*;
 import java.awt.*;
-
 /**
  * Class for building a JPanel with buttons for available channels.
+ * Contains a header with information about the RadioInfo-program and then a panel with all channels loaded.
+ * @author Emmy Lindgren, id19eln.
  */
 public class BuildChannelPanel {
     private final JList<Channel> list;
     private final JPanel channelPanel;
-
+    /**
+     * Builds a JPanel containing an information header and a listview of the channels.
+     * @param list, the JListModel of channels to be shown in the JPanel.
+     */
     public BuildChannelPanel(JList<Channel> list){
         channelPanel = new JPanel(new BorderLayout());
         this.list = list;
         channelPanel.add(buildHeader(),BorderLayout.NORTH);
         channelPanel.add(buildList(),BorderLayout.CENTER);
     }
-
+    /**
+     * Returns the built JPanel.
+     * @return JPanel that's built in the constructor.
+     */
     public JPanel getPanel(){
         return channelPanel;
     }
-
     private JPanel buildHeader(){
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
@@ -41,7 +47,6 @@ public class BuildChannelPanel {
         panel.add(description);
         return panel;
     }
-
     private JScrollPane buildList(){
         JPanel panel = new JPanel();
         panel.setBorder(BorderFactory.createEmptyBorder(0, 10, 0,10));

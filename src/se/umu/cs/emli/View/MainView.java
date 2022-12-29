@@ -7,19 +7,26 @@ import javax.swing.table.TableColumnModel;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
-
+/**
+ * Main view-class for the program RadioInfo.
+ * Builds the views and components for the program and puts it all together.
+ * @author Emmy Lindgren, id19eln.
+ */
 public class MainView {
     private JFrame frame;
     private JMenuBar menuBar;
-    private JList<Channel> channelJList;
-    private CardLayout cardLayout;
-    private JPanel layoutPanel;
+    private final JList<Channel> channelJList;
+    private final CardLayout cardLayout;
+    private final JPanel layoutPanel;
     private JLabel tableauHeader;
     private JTextArea tableauDescription;
     private JLabel tableauIconLabel;
     private JTable tableau;
     private JButton updateButton;
-
+    /**
+     * Builds channel- and tableau-view, and sets the channel-view to be shown.
+     * @param channelList, the JListModel containing channels to be displayed in the view.
+     */
     public MainView(ChannelListModel channelList){
         buildFrameWithMenuBar();
         channelJList = new JList<>(channelList);
@@ -33,7 +40,6 @@ public class MainView {
 
         showChannelView();
     }
-
     private void buildFrameWithMenuBar() {
         frame = new JFrame();
         frame.setTitle("RadioInfo");
@@ -46,11 +52,9 @@ public class MainView {
         this.menuBar = buildJMenuBar();
         frame.setJMenuBar(this.menuBar);
     }
-
     private void buildChannelView(){
         layoutPanel.add(new BuildChannelPanel(channelJList).getPanel(),"channel");
     }
-
     private void buildTableauView(){
         JPanel tableauPanel = new JPanel(new BorderLayout());
         tableauPanel.add(buildTableauViewHeader(),BorderLayout.NORTH);
@@ -101,7 +105,6 @@ public class MainView {
 
         return panel;
     }
-
     private JPanel buildTableauInfoPanel() {
         JPanel tableauInfo = new JPanel();
         tableauInfo.setLayout(new BorderLayout());
@@ -141,16 +144,24 @@ public class MainView {
         bar.add(menu);
         return bar;
     }
-
+    /**
+     * Sets the tableau-view to be shown in GUI.
+     */
     public void showTableauView(){
         cardLayout.show(layoutPanel,"tableau");
         enableMenuItemUpdate(true);
     }
+    /**
+     * Sets the channel-view to be shown in GUI.
+     */
     public void showChannelView(){
         cardLayout.show(layoutPanel,"channel");
         enableMenuItemUpdate(false);
     }
-
+    /**
+     * Sets the current ProgramTableModel for JTable showing the tableau.
+     * @param model, the programTableModel to be set.
+     */
     public void setTableau(ProgramTableModel model){
         tableau.setModel(model);
 
@@ -161,29 +172,52 @@ public class MainView {
             columnModel.getColumn(i).setCellRenderer(new ProgramRenderer());
         }
     }
+    /**
+     * Sets the tableauheader-information in tableau-view.
+     * @param name, the name of the Channel of which tableau is showing.
+     * @param tagline, the tagline of the Channel of which tableau is showing.
+     * @param image, the ImageIcon of the Channel of which tableau is showing.
+     */
     public void setTableauInfo(String name,String tagline,ImageIcon image){
         tableauHeader.setText(name);
         tableauDescription.setText(tagline);
         tableauIconLabel.setIcon(image);
     }
-
     private void enableMenuItemUpdate(boolean enable){
         menuBar.getMenu(0).getItem(1).setEnabled(enable);
     }
+    /**
+     * Displays information about a specific program.
+     * @param programName, the name of the program of which is to be displayed.
+     * @param programDescription, the description of the program of which is to be displayed.
+     * @param status, the time-status of the program of which is to be displayed.
+     * @param icon, the ImageIcon of the program of which is to be displayed.
+     */
     public void showProgramInfo(String programName, String programDescription, String status, ImageIcon icon){
         new BuildDialog().buildProgramDialog(frame,programName,programDescription,status,icon);
     }
-
+    /**
+     * Sets or unsets wait-cursor for the program.
+     * @param waitCursor, boolean saying if the wait-cursor should be active or not.
+     */
     public void setWaitCursor(boolean waitCursor){
         if(waitCursor) frame.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
         else frame.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
     }
+    /**
+     * Shows information to the user via the GUI, in a dialogbox with option OK.
+     * @param info, a string containing the information to be shown to the user.
+     */
     public void showInformation(String info){
         Object[] options = {"OK"};
         JOptionPane.showOptionDialog(null, info, "Information",
                 JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE,
                 null, options, options[0]);
     }
+    /**
+     * Sets actionListener for the ChannelList.
+     * @param listener, the listener to set.
+     */
     public void setChannelListListener(ListSelectionListener listener){
         channelJList.addListSelectionListener(listener);
     }
@@ -200,7 +234,7 @@ public class MainView {
     /**
      * Replaces actionListener for second menu item in the menu. If there is a listener on the
      * menu item already it is replaced by the new one. If not, the new one is set.
-     * @param actionListener = the listener to set.
+     * @param actionListener, the listener to set.
      */
     public void replaceUpdateMenuItemListener(ActionListener actionListener) {
         if(menuBar.getMenu(0).getItem(1).getActionListeners().length > 0){
@@ -212,12 +246,17 @@ public class MainView {
     /**
      * Sets actionListener for third menu item in the menu.
      * Separators excluded in indexing of menu.
-     * @param actionListener = the listener to set.
+     * @param actionListener, the listener to set.
      */
     public void setCancelItemListener(ActionListener actionListener) {
         menuBar.getMenu(0).getItem(3).addActionListener(actionListener);
     }
 
+    /**
+     * Replaces the actionListener for the update-button in tableau-view. If there is a listener on the
+     * update-button already it is replaced by the new one. If not, the new one is set.
+     * @param actionListener, the listener to set
+     */
     public void replaceUpdateButtonListener(ActionListener actionListener){
         if(updateButton.getActionListeners().length > 0){
             updateButton.removeActionListener(updateButton.getActionListeners()[0]);

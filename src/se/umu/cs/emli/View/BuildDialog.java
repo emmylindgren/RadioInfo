@@ -2,8 +2,20 @@ package se.umu.cs.emli.View;
 
 import javax.swing.*;
 import java.awt.*;
-
+/**
+ * Class for making two different form of JDialogs. One for displaying information about a specific program
+ * and one for displaying information about RadioInfo-tableauview.
+ * @author Emmy Lindgren, id19eln.
+ */
 public class BuildDialog {
+    /**
+     * Builds a JDialog that displays information about a specific program.
+     * @param frame, the frame of which the JDialog should be appended to.
+     * @param programName, the name of the program.
+     * @param programDescription, the description of the program.
+     * @param status, the time-status of the program.
+     * @param icon, the imageIcon corresponding to the program.
+     */
     public void buildProgramDialog(JFrame frame, String programName, String programDescription, String status,
                                       ImageIcon icon){
         JDialog d = new JDialog(frame, "Programinformation");
@@ -30,6 +42,11 @@ public class BuildDialog {
         d.setLocationRelativeTo(frame);
         d.setVisible(true);
     }
+
+    /**
+     * Builds a JDialog with information about how the tableauview works.
+     * @param frame, the frame of which the JDialog should be appended to.
+     */
     public void buildInfoDialog(JFrame frame){
         JDialog d = new JDialog(frame, "Tablåinformation");
         JPanel panel =(JPanel)d.getContentPane();
