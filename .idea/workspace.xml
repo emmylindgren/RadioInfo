@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="RadioInfo:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="e6704d4b-30a9-40f5-999d-f4a9d32c6c19" name="Changes" comment="Comments and some clean up.">
+    <list default="true" id="e6704d4b-30a9-40f5-999d-f4a9d32c6c19" name="Changes" comment="Comments and some clean up view classes.">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/RadioInfo_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/View/BuildChannelPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/View/BuildChannelPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/View/BuildDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/View/BuildDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/View/ChannelRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/View/ChannelRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/View/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/View/MainView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/View/NiceTextArea.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/View/NiceTextArea.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/View/ProgramRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/View/ProgramRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/Controller/ChannelWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Controller/ChannelWorker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/ImageLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/ImageLoader.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,14 +43,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Emmy/Downloads/Swingtimer/Swingtimer&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;proofread&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "C:/Users/Emmy/Downloads/Swingtimer/Swingtimer",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "proofread"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Emmy\IdeaProjects\RadioInfo\src\se\umu\cs\emli\Resources" />
@@ -314,7 +322,13 @@
       <option name="presentableId" value="LOCAL−00040" />
       <updated>1672252537252</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL−00041" summary="Comments and some clean up view classes.">
+      <created>1672299508028</created>
+      <option name="number" value="LOCAL−00041" />
+      <option name="presentableId" value="LOCAL−00041" />
+      <updated>1672299508028</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -329,7 +343,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added status for programs. Also some comments on how to implement threads." />
     <MESSAGE value="Added some comments for threads." />
     <MESSAGE value="Started some work with being able to change the view." />
     <MESSAGE value="Changing view when channel button is pressed working now." />
@@ -354,6 +367,7 @@
     <MESSAGE value="Some code clean up and refactoring. Also added informationbutton for tableau." />
     <MESSAGE value="Some code clean up and refactoring. Slow scroll for channels also fixed." />
     <MESSAGE value="Comments and some clean up." />
-    <option name="LAST_COMMIT_MESSAGE" value="Comments and some clean up." />
+    <MESSAGE value="Comments and some clean up view classes." />
+    <option name="LAST_COMMIT_MESSAGE" value="Comments and some clean up view classes." />
   </component>
 </project>

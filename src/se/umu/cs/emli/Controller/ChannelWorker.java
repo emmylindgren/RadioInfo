@@ -66,7 +66,8 @@ public class ChannelWorker extends SwingWorker<Object, Channel> {
         } catch (InterruptedException e) {
             view.showInformation("Det gick inte att ladda in kanalerna.");
         } catch (ExecutionException e) {
-            view.showInformation("Det gick inte att ladda in kanalerna. Kontrollera din uppkoppling.");
+            view.showInformation("Det gick inte att ladda in någon eller några av kanalerna. " +
+                    "Kontrollera din uppkoppling.");
         }
     }
 }
