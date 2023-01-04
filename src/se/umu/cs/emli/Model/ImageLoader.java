@@ -3,7 +3,7 @@ package se.umu.cs.emli.Model;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 import java.util.Objects;
 /**
@@ -33,8 +33,7 @@ public class ImageLoader {
         }
         if(loadImageNotFoundIcon){
             try {
-                String imageNotFoundSrc = "../resources/image-not-found-icon.png";
-                img = ImageIO.read(Objects.requireNonNull(Channel.class.getResource(imageNotFoundSrc)));
+                img = ImageIO.read(Channel.class.getResourceAsStream("/image-not-found-icon.png"));
             } catch (IOException| NullPointerException ignored) {
             }
         }
@@ -49,20 +48,20 @@ public class ImageLoader {
      * @return the loaded refresh-icon.
      */
     public ImageIcon loadRefreshIcon(){
-        return loadIcon("../resources/refresh.png");
+        return loadIcon("/refresh.png");
     }
     /**
      * Loads load-icon from project. Size 20 x 20.
      * @return the loaded load-icon.
      */
     public ImageIcon loadInformationIcon(){
-        return loadIcon("../resources/information.png");
+        return loadIcon("/information.png");
     }
 
     private ImageIcon loadIcon(String src){
         Image img = null;
         try {
-            img = ImageIO.read(Objects.requireNonNull(Channel.class.getResource(src)));
+            img = ImageIO.read(Objects.requireNonNull(Channel.class.getResourceAsStream(src)));
         } catch (IOException| NullPointerException ignored) {
         }
         if(img !=null){

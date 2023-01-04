@@ -5,13 +5,13 @@
       <artifact name="RadioInfo:jar" />
     </artifacts-to-build>
   </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="e6704d4b-30a9-40f5-999d-f4a9d32c6c19" name="Changes" comment="Comments and some clean up view classes.">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/RadioInfo_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
+    <list default="true" id="e6704d4b-30a9-40f5-999d-f4a9d32c6c19" name="Changes" comment="Updated some printouts and added JAR-file.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/Controller/ChannelWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Controller/ChannelWorker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RadioInfo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/RadioInfo.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/ImageLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/se/umu/cs/emli/Model/ImageLoader.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -49,9 +49,9 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "last_opened_file_path": "C:/Users/Emmy/Downloads/Swingtimer/Swingtimer",
-    "project.structure.last.edited": "Artifacts",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "proofread"
   }
 }]]></component>
